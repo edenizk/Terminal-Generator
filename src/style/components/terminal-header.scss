@@ -1,0 +1,51 @@
+.terminal-header {
+  height: 51px;
+  width: 100%;
+  background-color: $cGrey;
+  display: flex;
+  align-items: center;
+  color: $cWhite;
+  position: relative;
+
+  &__tab {
+    position: relative;
+    font-family: 'Segoe UI Local', 'Segoe UI Web (West European)';
+    height: 48px;
+    width: 343px;
+    margin-top: 3px;
+    margin-left: 12px;
+    background-color: $cBlack;
+    border-radius: 4px 4px 0px 0px;
+    padding: 0 17px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    margin-right: 15px;
+    width: 28px;
+    height: 26px;
+  }
+
+  &__close {
+    position: absolute;
+    right: 16px;
+
+  }
+
+  &__add {
+    margin-left: 10px;
+  }
+  
+  &__down {
+    margin-left: 21px;
+  }
+
+  &__windowTools {
+    position: absolute;
+    right: 23px;
+    svg + svg {
+      margin-left: 50px;
+    }
+  }
+}

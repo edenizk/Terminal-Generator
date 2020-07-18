@@ -1,12 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from './images/logo.svg';
+import GlobalHeader from './components/GlobalHeader'
+import './App.scss';
+import Terminal from './components/Terminal';
+import SettingsWrapper from './components/Settings/SettingsWrapper';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <div className="container">
+          <GlobalHeader/>
+          
+          <main className="main">
+            <Terminal></Terminal>
+            <SettingsWrapper></SettingsWrapper>
+          </main>
+
+        </div>
+        {/* <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -17,8 +28,7 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
-      </header>
+        </a> */}
     </div>
   );
 }

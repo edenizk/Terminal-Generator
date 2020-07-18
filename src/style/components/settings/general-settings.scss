@@ -1,0 +1,16 @@
+.general-settings {
+    display: contents;
+
+    &__title {
+        padding: 13px 0 10px 6px;
+        border-bottom: 1px solid $cBlack;
+        border-top: 1px solid $cBlack;
+        margin-top: 35px;
+    }
+
+    &__content {
+        padding-left: 6px;
+        padding-right: 52px;
+        padding-bottom: 30px;
+    }
+}

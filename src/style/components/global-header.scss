@@ -1,0 +1,9 @@
+.global-header {
+  display: flex;
+  align-items: center;
+  position: absolute;
+
+  &__logo {
+    margin-right: 20px;
+  }
+}

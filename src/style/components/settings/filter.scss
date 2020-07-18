@@ -1,0 +1,29 @@
+.filter {
+  &__icons {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__icon {
+    cursor: pointer;
+
+    &:first-child {
+      & > *:first-child {
+        background-color: rgba($cOrange, .3);
+        box-shadow: 0px 0px 20px $cOrange;
+      }
+    }
+    
+    & + & {
+      margin-left: 44px;
+    }
+  }
+
+  &__colorWheel {
+    width: 24px;
+    height: 24px;
+    background: conic-gradient(from 180deg at 50% 50%, #FF0000 0deg, #FFD600 52.5deg, rgba(20, 255, 0, 0.753036) 118.22deg, #00F0FF 180.02deg, #2400FF 243.76deg, #FA03FF 307.22deg, #FF0000 360deg);
+    border: 0.1px solid #000000;
+    border-radius: 100%;
+  }
+}

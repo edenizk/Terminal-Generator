@@ -1,0 +1,24 @@
+.terminal {
+    width: 861px;
+
+    &__content {
+        font-family: 'Cascadia Code';
+        height: 431px;
+        color: $cWhite;
+        background: #472148;
+        opacity: .5;
+        padding-top: 9px;
+        padding-left: 14px;
+        
+    }
+
+    &__paragraph {
+        & + & {
+            margin-top: 20px;
+        }
+    }
+
+    &__cursor {
+        animation: pulse 1s infinite;
+    }
+}
