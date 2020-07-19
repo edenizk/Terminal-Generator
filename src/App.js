@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './images/logo.svg';
 import GlobalHeader from './components/GlobalHeader'
 import './App.scss';
 import Terminal from './components/Terminal';
