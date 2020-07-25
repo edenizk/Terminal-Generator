@@ -1,48 +1,34 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { ChevronDown } from 'react-feather';
 
-class Dropdown extends Component {
-    constructor (props) {
-        super(props)
+const Dropdown = (props) => {
+    const { title, options, activeOption, event } = props
+    const [optionsActive, setOptionsActive] = useState(false);
 
-        this.state = {
-            selected: this.props.options[0],
-            optionsActive: false,
-        }
+    const setSelected = (value) => {
+        setOptionsActive(false)
+        event(value)
     }
 
-    toggleDropdown() {
-        this.setState({
-            optionsActive: !this.state.optionsActive,
-        });
-    }
-
-    setSelected(value) {
-        this.setState({
-            selected: value 
-        });
-    }
-
-    render() { 
-        const { title, options } = this.props
-        return ( 
-            <div className="dropdown">
-                <h3 className="dropdown__title input-title">{title}</h3>
-                <div className="dropdown__label" onClick={() => this.toggleDropdown()}>
-                    <span className="dropdown__selected">{ this.state.selected }</span>
-                    <ChevronDown className="dropdown__icon"></ChevronDown>
-                </div>
-                <ul className={`dropdown__options${ this.state.optionsActive ? ' dropdown__options--active' : '' }`} >
-                    { 
-                    options.map( (option) => {
-                        return <li 
-                        className={`dropdown__option${ this.state.selected === option ? 'dropdown__option--selected' : '' }`} 
-                        onClick={ () => this.setSelected(option)}>{option}</li>
-                    })}
-                </ul>
+    return ( 
+        <div className="dropdown">
+            <h3 className="dropdown__title input-title">{title}</h3>
+            <div className="dropdown__label" onClick={() => setOptionsActive(!optionsActive)}>
+                <span className="dropdown__selected">{ activeOption }</span>
+                <ChevronDown className="dropdown__icon"></ChevronDown>
             </div>
-        );
-    }
+            <ul className={`dropdown__options${ optionsActive ? ' dropdown__options--active' : '' }`} >
+                { 
+                options.map( (option, index) => {
+                    return <li 
+                    key={index}
+                    className={`dropdown__option${ activeOption === option ? ' dropdown__option--selected' : '' }`} 
+                    onClick={ () => setSelected(option)}>{option}</li>
+                })}
+            </ul>
+        </div>
+    );
+    
 }
  
 export default Dropdown;
