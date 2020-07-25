@@ -1,0 +1,20 @@
+.checkbox { $p: &;
+  margin-top: 15px;
+  
+  &--active {
+      #{$p}__checkbox {
+        color: $cOrange;
+      }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+
+  }
+
+  &__checkbox {
+    margin-right: 26px;
+    transition: color .3s;
+  }
+}
