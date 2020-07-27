@@ -1,7 +1,5 @@
 import React from 'react';
-import Input from '../Input/Input';
-import Dropdown from '../Input/Dropdown';
-import Checkbox from '../Input/Checkbox';
+import { Input, Dropdown, Checkbox } from '../Input';
 import { useDispatch, useSelector } from 'react-redux'
 import { setTitle, setCursor, setScrollbarVisibility } from '../../actions'
 
