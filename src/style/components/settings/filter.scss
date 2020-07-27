@@ -7,7 +7,7 @@
   &__icon {
     cursor: pointer;
 
-    &:first-child {
+    &--active {
       & > *:first-child {
         background-color: rgba($cOrange, .3);
         box-shadow: 0px 0px 20px $cOrange;
