@@ -89,30 +89,9 @@ export const setTransparency = (value) => {
   }
 }
 
-export const setPaddingTop = (value) => {
+export const setPadding = (value, direction) => {
   return {
-    type: 'SET_PADDING_TOP',
-    payload: value
-  }
-}
-
-export const setPaddingBottom = (value) => {
-  return {
-    type: 'SET_PADDING_BOTTOM',
-    payload: value
-  }
-}
-
-export const setPaddingLeft = (value) => {
-  return {
-    type: 'SET_PADDING_LEFT',
-    payload: value
-  }
-}
-
-export const setPaddingRight = (value) => {
-  return {
-    type: 'SET_PADDING_RIGHT',
+    type: 'SET_PADDING_' + direction,
     payload: value
   }
 }

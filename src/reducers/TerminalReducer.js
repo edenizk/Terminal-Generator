@@ -6,16 +6,18 @@ const INITIAL_STATE = Object.freeze({
     closeOnExit: 'graceful',
     icon: '',
     backgroundImage: '',
-    backgroundImageOpacity: 0.5,
+    backgroundImageOpacity: 50,
     backgroundImageAlignment: 'Center',
     backgroundImageStretch: 'None',
     backgroundColor: '#472148',
     enableAcrylic: true,
-    transparency: 0.5,
-    paddingTop: 30,
-    paddingBottom: 30,
-    paddingLeft: 30,
-    paddingRight: 30,
+    transparency: 50,
+    padding: {
+      top: 8,
+      right: 8,
+      bottom: 8,
+      left: 8
+    },
     scrollbarVisibility: true,
     scrollToInput: true,
     historySize: 9001
@@ -87,22 +89,34 @@ const terminalReducer = (state = INITIAL_STATE, action) => {
       case 'SET_PADDING_TOP':
         return {
           ...state,
-          paddingTop: action.payload,
+          padding: {
+            ...state.padding,
+            top: action.payload
+          }
         };
       case 'SET_PADDING_BOTTOM':
         return {
           ...state,
-          paddingBottom: action.payload,
+          padding: {
+            ...state.padding,
+            bottom: action.payload
+          }
         };
     case 'SET_PADDING_LEFT':
       return {
         ...state,
-        paddingLeft: action.payload,
+        padding: {
+          ...state.padding,
+          left: action.payload
+        }
       };
       case 'SET_PADDING_RIGHT':
         return {
           ...state,
-          paddingRight: action.payload,
+          padding: {
+            ...state.padding,
+            right: action.payload
+          }
         };
       case 'SET_SCROLLBAR_VISIBILITY':
         return {

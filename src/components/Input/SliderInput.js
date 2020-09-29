@@ -2,7 +2,7 @@ import React from 'react';
 import { Slider } from 'material-ui-slider';
 
 const SliderInput = (props) => {
-    const { title, event, value } = props
+    const { title, event, value, valueText, max, min } = props
 
     const setSliderValue = (value) => {
         event(value)
@@ -10,9 +10,9 @@ const SliderInput = (props) => {
 
     return ( 
         <div className="slider">
-            <h3 className="slider__title">{title}</h3>
-            <Slider className="slider__slider" defaultValue={value * 100} onChange={(value) => setSliderValue(value)}></Slider>
-            <span className="slider__value">{value}</span>
+            <h3 className="slider__title input-title">{title}</h3>
+            <Slider className="slider__slider" min={min ? min : 0} max={max ? max : 100} defaultValue={value} onChange={(value) => setSliderValue(value)}></Slider>
+            <span className="slider__value">{valueText}</span>
         </div>
     );
 }
