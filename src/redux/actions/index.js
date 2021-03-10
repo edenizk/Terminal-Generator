@@ -19,9 +19,9 @@ export const setFontFace = (value) => {
   }
 }
 
-export const setCursor = (value) => {
+export const setCursorShape = (value) => {
   return {
-    type: 'SET_CURSOR',
+    type: 'SET_CURSORSHAPE',
     payload: value
   }
 }
@@ -61,7 +61,7 @@ export const setBackgroundImageAlignment = (value) => {
   }
 }
 
-export const setBackgroundImageStretch = (value) => {
+export const setBackgroundImageStretchMode = (value) => {
   return {
     type: 'SET_BACKGROUND_IMAGE_STRETCH',
     payload: value
@@ -75,44 +75,23 @@ export const setBackgroundColor = (value) => {
   }
 }
 
-export const setEnableAcrylic = (value) => {
+export const setUseAcrylic = (value) => {
   return {
-    type: 'SET_ENABLE_ACRYLIC',
+    type: 'SET_USE_ACRYLIC',
     payload: value
   }
 }
 
-export const setTransparency = (value) => {
+export const setAcrylicOpacity = (value) => {
   return {
-    type: 'SET_TRANSPARENCY',
+    type: 'SET_ACRYLIC_OPACITY',
     payload: value
   }
 }
 
-export const setPaddingTop = (value) => {
+export const setPadding = (value, direction) => {
   return {
-    type: 'SET_PADDING_TOP',
-    payload: value
-  }
-}
-
-export const setPaddingBottom = (value) => {
-  return {
-    type: 'SET_PADDING_BOTTOM',
-    payload: value
-  }
-}
-
-export const setPaddingLeft = (value) => {
-  return {
-    type: 'SET_PADDING_LEFT',
-    payload: value
-  }
-}
-
-export const setPaddingRight = (value) => {
-  return {
-    type: 'SET_PADDING_RIGHT',
+    type: 'SET_PADDING_' + direction,
     payload: value
   }
 }

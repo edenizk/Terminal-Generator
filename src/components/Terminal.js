@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import defaultBackground from '../images/kity_space.gif'
 
 function Terminal() {
-  const cursor = useSelector(state => state.terminalReducer.cursor)
+  const cursorShape = useSelector(state => state.terminalReducer.cursorShape)
   const backgroundImageOpacity = useSelector(state => state.terminalReducer.backgroundImageOpacity)
   const padding = useSelector(state => state.terminalReducer.padding)
 
@@ -26,7 +26,7 @@ function Terminal() {
           opacity:backgroundImageOpacity / 100
         }}></div>
         <p className="terminal__paragraph">Your Favorite Shell ❤</p>
-        <p className="terminal__paragraph">C:\Users\me&gt; <span className="terminal__cursor">{cursor ? cursor.match(regex) : ' |'}</span></p>
+        <p className="terminal__paragraph">C:\Users\me&gt; <span className="terminal__cursorShape">{cursorShape ? cursorShape.match(regex) : ' |'}</span></p>
       </div>
     </div>
   );

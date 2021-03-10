@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { Sliders, Image, Crop, Command, Sidebar } from 'react-feather';
-import { setFilterIndex } from '../../actions/index'
+import { setFilterIndex } from '../../redux/actions'
 
 const Filter = () => {
   const filterIndex = useSelector(state => state.filterReducer.filterIndex)

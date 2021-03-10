@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 function TerminalHeader() {
   const icon = useSelector(state => state.terminalReducer.icon)
-  const title = useSelector(state => state.terminalReducer.tabTitle)
+  const title = useSelector(state => state.terminalReducer.name)
 
   return ( 
     <div className="terminal-header">

@@ -1,7 +1,7 @@
 import React from 'react';
 import { SliderInput } from '../Input';
 import { useDispatch, useSelector } from 'react-redux'
-import { setPadding } from '../../actions'
+import { setPadding } from '../../redux/actions'
 
 const Padding = () => {
   const dispatch = useDispatch();

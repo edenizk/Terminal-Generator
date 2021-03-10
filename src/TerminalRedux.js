@@ -1,8 +1,8 @@
 const INITIAL_STATE = Object.freeze({
-  tabTitle: '',
+  name: '',
   fontFace: 'Cascadia Mono',
   fontWeight: 'Normal',
-  cursor: 'bar',
+  cursorShape: 'bar',
   closeOnExit: 'graceful',
   scrollbarVisibility: true,
   icon: ''
@@ -20,10 +20,10 @@ const terminalReducer = (state = INITIAL_STATE, action) => {
         ...state,
         fontface: action.payload,
       };
-    case 'SET_CURSOR':
+    case 'SET_CURSORSHAPE':
       return {
         ...state,
-        cursor: action.payload,
+        cursorShape: action.payload,
       };  
     default:
       return state;

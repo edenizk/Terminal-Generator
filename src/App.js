@@ -3,6 +3,7 @@ import GlobalHeader from './components/GlobalHeader'
 import './App.scss';
 import Terminal from './components/Terminal';
 import SettingsWrapper from './components/Settings/SettingsWrapper';
+import ResultCard from './components/ResultCard';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <main className="main">
             <Terminal></Terminal>
             <SettingsWrapper></SettingsWrapper>
+            <ResultCard></ResultCard>
           </main>
 
         </div>

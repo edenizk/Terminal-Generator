@@ -1,25 +1,25 @@
 const INITIAL_STATE = Object.freeze({
-    tabTitle: '',
+    name: '',
     fontFace: 'Cascadia Mono',
     fontWeight: 'Normal',
-    cursor: 'bar ( ┃ )',
+    cursorShape: 'bar ( ┃ )',
     closeOnExit: 'graceful',
     icon: '',
     backgroundImage: '',
     backgroundImageOpacity: 50,
     backgroundImageAlignment: 'Center',
-    backgroundImageStretch: 'None',
-    backgroundColor: '#472148',
-    enableAcrylic: true,
-    transparency: 50,
+    backgroundImageStretchMode: 'None',
+    backgroundColor: '#472148', // THIS SET AS ONLY BACKGROUND IN SETTINGS.JSON
+    useAcrylic: true,
+    acrylicOpacity: 50,
     padding: {
       top: 8,
       right: 8,
       bottom: 8,
       left: 8
     },
-    scrollbarVisibility: true,
-    scrollToInput: true,
+    scrollbarVisibility: true, // Property name: scrollbarState
+    scrollToInput: true, // Property name: snapOnInput
     historySize: 9001
 });
   
@@ -29,17 +29,17 @@ const terminalReducer = (state = INITIAL_STATE, action) => {
       case 'SET_TITLE':
         return {
           ...state,
-          tabTitle: action.payload,
+          name: action.payload,
         };
       case 'SET_FONTFACE':
         return {
           ...state,
           fontface: action.payload,
         };
-      case 'SET_CURSOR':
+      case 'SET_CURSORSHAPE':
         return {
           ...state,
-          cursor: action.payload,
+          cursorShape: action.payload,
         };  
       case 'SET_CLOSE_ON_EXIT':
         return {
@@ -69,22 +69,22 @@ const terminalReducer = (state = INITIAL_STATE, action) => {
       case 'SET_BACKGROUND_IMAGE_STRETCH':
         return {
           ...state,
-          backgroundImageStretch: action.payload,
+          backgroundImageStretchMode: action.payload,
         };
       case 'SET_BACKGROUND_COLOR':
         return {
           ...state,
           backgroundColor: action.payload,
         };
-      case 'SET_ENABLE_ACRYLIC':
+      case 'SET_USE_ACRYLIC':
         return {
           ...state,
-          enableAcrylic: action.payload,
+          useAcrylic: action.payload,
         };
-      case 'SET_TRANSPARENCY':
+      case 'SET_ACRYLIC_OPACITY':
         return {
           ...state,
-          transparency: action.payload,
+          acrylicOpacity: action.payload,
         };
       case 'SET_PADDING_TOP':
         return {

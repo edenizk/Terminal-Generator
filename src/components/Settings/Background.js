@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input, Dropdown, Checkbox, SliderInput } from '../Input';
 import { useDispatch, useSelector } from 'react-redux'
-import { setBackgroundImageOpacity } from '../../actions'
+import { setBackgroundImageOpacity } from '../../redux/actions'
 
 const Background = () => {
   const dispatch = useDispatch();

@@ -1,17 +1,17 @@
 import React from 'react';
 import { Input, Dropdown, Checkbox } from '../Input';
 import { useDispatch, useSelector } from 'react-redux'
-import { setTitle, setCursor, setScrollbarVisibility } from '../../actions'
+import { setTitle, setCursorShape, setScrollbarVisibility } from '../../redux/actions'
 
 const GeneralSettings = () => {
   const fontFaceOptions = ['test1', 'test2', 'test3']
-  const cursorOptions = ['bar ( ┃ )', 'vintage ( ▃ )', 'underscore ( ▁ )', 'filledBox ( █ )', 'emptyBox ( ▯ )']
+  const cursorShapeOptions = ['bar ( ┃ )', 'vintage ( ▃ )', 'underscore ( ▁ )', 'filledBox ( █ )', 'emptyBox ( ▯ )']
 
   const dispatch = useDispatch();
   const isScrollbarVisible = useSelector(state => state.terminalReducer.scrollbarVisibility)
-  const cursor = useSelector(state => state.terminalReducer.cursor)
+  const cursorShape = useSelector(state => state.terminalReducer.cursorShape)
 
-  const onTabTitleChange = (e) => {
+  const onnameChange = (e) => {
     dispatch(setTitle(e.target.value))
   }
 
@@ -23,9 +23,9 @@ const GeneralSettings = () => {
     dispatch(setTitle(value))
   }
 
-  const onCursorChange = (value) => {
+  const onCursorShapeChange = (value) => {
     console.log(value)
-    dispatch(setCursor(value))
+    dispatch(setCursorShape(value))
   }
 
   const onCloseOnExitChange = (value) => {
@@ -40,10 +40,10 @@ const GeneralSettings = () => {
     <div className="general-settings">
       <h2 className="general-settings__title settings-title">General Settings</h2>
       <div className="general-settings__content content">
-        <Input title="Tab Title" event={onTabTitleChange}></Input>
+        <Input title="Tab Title" event={onnameChange}></Input>
         <Dropdown title="Font Face" options={fontFaceOptions}></Dropdown>
         <Dropdown title="Font Weight" options={fontFaceOptions}></Dropdown>
-        <Dropdown title="Cursor" options={cursorOptions} activeOption={cursor} event={onCursorChange}></Dropdown>
+        <Dropdown title="Cursor Shape" options={cursorShapeOptions} activeOption={cursorShape} event={onCursorShapeChange}></Dropdown>
         <Dropdown title="Close on Exit" options={fontFaceOptions}></Dropdown>
         <Checkbox name="Scrollbar visibility" isChecked={isScrollbarVisible} event={onScrollbarVisibilityChange}></Checkbox>
       </div>
