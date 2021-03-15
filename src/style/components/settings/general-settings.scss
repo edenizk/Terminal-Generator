@@ -18,3 +18,12 @@
 body {
     overflow: hidden;
 }
+
+.multiline {
+    white-space: pre-wrap;
+}
+
+.code {
+    background-color: $cDark;
+    color: $cLightOrange;  
+}

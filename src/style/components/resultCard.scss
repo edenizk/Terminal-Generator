@@ -7,17 +7,23 @@
   background-color: white;
   box-shadow: 5px -5px 20px rgba(0, 0, 0, 0.2);
   max-height: 31.25vw;
-  bottom: 0px;
+  height: 31.25vw;
+  top: calc(100% - 31.25vw);
   left: 50%;
   transform: translateX(-50%);
   border-radius: 30px 30px 0 0;
-  transition: bottom .3s;
+  transition: top .3s;
 
   &--closed {
-    bottom: -480px;
+    top: calc(100% - 60px);
+    cursor: pointer;
 
     &:hover {
-      bottom: -450px;
+      top: calc(100% - 130px);
+
+      #{$p}__toggleText {
+        color: green;
+      }
     }
 
     #{$p}__toggleIcon {
@@ -31,12 +37,6 @@
     align-items: center;
     margin-bottom: 20px;
     cursor: pointer;
-
-    &:hover {
-      #{$p}__toggleText {
-        color: green;
-      }
-    }
   }
 
   &__toggleText {
@@ -51,9 +51,6 @@
 
   .AdvanceSettingsTemplate {
     overflow: auto;
-    white-space: pre-wrap;
     max-height: 450px;
-    background-color: $cDark;
-    color: $cLightOrange;
   }
 }
