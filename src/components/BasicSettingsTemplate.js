@@ -1,15 +1,9 @@
 import React from 'react'
 
-const BasicSettingsTemplate = () => {
+const BasicSettingsTemplate = ({ settings }) => {
   return (
     <p className="basicSettingsTemplate multiline code">
-      {`
-        {
-            "guid": "{}",
-            "hidden": false,
-            "name": "",
-        }
-      `}
+      {`${JSON.stringify(settings, null, "\t")}`}
     </p>
   )
 }
