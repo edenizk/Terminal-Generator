@@ -1,5 +1,5 @@
 import React from 'react';
-import GlobalHeader from './components/GlobalHeader'
+import GlobalHeader from './components/GlobalHeader';
 import './App.scss';
 import Terminal from './components/Terminal';
 import SettingsWrapper from './components/Settings/SettingsWrapper';
@@ -8,17 +8,17 @@ import ResultCard from './components/ResultCard';
 function App() {
   return (
     <div className="App">
-        <div className="container">
-          <GlobalHeader/>
+      <div className="container">
+        <GlobalHeader/>
           
-          <main className="main">
-            <Terminal></Terminal>
-            <SettingsWrapper></SettingsWrapper>
-            <ResultCard></ResultCard>
-          </main>
+        <main className="main">
+          <Terminal></Terminal>
+          <SettingsWrapper></SettingsWrapper>
+          <ResultCard></ResultCard>
+        </main>
 
-        </div>
-        {/* <img src={logo} className="App-logo" alt="logo" />
+      </div>
+      {/* <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>

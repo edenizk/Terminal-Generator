@@ -1,15 +1,15 @@
 import React from 'react';
 import { Input, Dropdown, Checkbox, SliderInput } from '../Input';
-import { useDispatch, useSelector } from 'react-redux'
-import { setBackgroundImageOpacity } from '../../redux/actions'
+import { useDispatch, useSelector } from 'react-redux';
+import { setBackgroundImageOpacity } from '../../redux/actions';
 
 const Background = () => {
   const dispatch = useDispatch();
-  const backgroundImageOpacity = useSelector(state => state.terminalReducer.backgroundImageOpacity)
+  const backgroundImageOpacity = useSelector(state => state.terminalReducer.backgroundImageOpacity);
 
   const setSliderValue = (value) => {
-    dispatch(setBackgroundImageOpacity(value))
-  }
+    dispatch(setBackgroundImageOpacity(value));
+  };
 
   return (
     <div className="general-settings">
@@ -19,6 +19,6 @@ const Background = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Background;

@@ -25,9 +25,9 @@ const INITIAL_STATE = Object.freeze({
 
 const defaultValueReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    default:
-      return state;
+  default:
+    return state;
   }
-}
+};
 
 export default defaultValueReducer;

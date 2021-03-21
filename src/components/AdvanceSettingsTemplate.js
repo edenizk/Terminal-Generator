@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 function AdvanceSettingsTemplate() {
-  const props = useSelector(state => state.terminalReducer)
+  const props = useSelector(state => state.terminalReducer);
 
   return (
     <p className="AdvanceSettingsTemplate multiline code">

@@ -10,6 +10,6 @@ const ScrollSettings = () => {
       </div>
     </div>
   );
-}
+};
 
 export default ScrollSettings;

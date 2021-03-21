@@ -1,13 +1,12 @@
-import React, { useState, useRef } from 'react';
-import AdvanceSettingsTemplate from './AdvanceSettingsTemplate';
+import React, { useState } from 'react';
 import { ChevronsUp } from 'react-feather';
-import BasicSettingsTemplate from './BasicSettingsTemplate';
 import { useSelector } from 'react-redux';
+import BasicSettingsTemplate from './BasicSettingsTemplate';
 
 const ResultCard = () => {
   const [isClose, setIsClose] = useState(true);
-  const terminalReducer = useSelector(state => state.terminalReducer)
-  const defaultValueReducer = useSelector(state => state.defaultValueReducer)
+  const terminalReducer = useSelector(state => state.terminalReducer);
+  const defaultValueReducer = useSelector(state => state.defaultValueReducer);
   const [settings, setSettings] = useState({});
 
   const openCard = () => {
@@ -17,24 +16,24 @@ const ResultCard = () => {
     removeEmptyValues();
     console.log('test');
     setIsClose(false);
-  }
+  };
 
   const closeCard = () => {
-    console.log('closed')
+    console.log('closed');
     setIsClose(true);
-  }
+  };
 
   const removeEmptyValues = () => {
-    let tmpSettings = {}
+    const tmpSettings = {};
 
     Object.keys(terminalReducer).forEach((prop) => {
       console.log('prop', prop);
       if (
-        terminalReducer[prop] !== null && 
+        terminalReducer[prop] !== null &&
         JSON.stringify(terminalReducer[prop]) !== JSON.stringify(defaultValueReducer[prop])
-      ) { 
+      ) {
         console.log('includes');
-        tmpSettings[prop] = terminalReducer[prop]; 
+        tmpSettings[prop] = terminalReducer[prop];
       }
     });
 
@@ -53,12 +52,12 @@ const ResultCard = () => {
   //   });
 
   // }
-  
+
   return (
     <div className={`resultCard resultCard--${isClose && 'closed'}`} onClick={openCard}>
       <div className="resultCard__toggle" onClick={closeCard}>
         <ChevronsUp className="resultCard__toggleIcon"></ChevronsUp>
-          <h4 className="resultCard__toggleText">{isClose ? 'Done?' : 'Close'}</h4>
+        <h4 className="resultCard__toggleText">{isClose ? 'Done?' : 'Close'}</h4>
         <ChevronsUp className="resultCard__toggleIcon"></ChevronsUp>
       </div>
       <div className="resultCard__content">
@@ -66,7 +65,7 @@ const ResultCard = () => {
         {/* <AdvanceSettingsTemplate /> */}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default ResultCard;

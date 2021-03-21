@@ -1,48 +1,48 @@
 import React from 'react';
 import { Input, Dropdown, Checkbox } from '../Input';
-import { useDispatch, useSelector } from 'react-redux'
-import { setTitle, setCursorShape, setScrollbarVisibility } from '../../redux/actions'
+import { useDispatch, useSelector } from 'react-redux';
+import { setTitle, setCursorShape, setScrollbarVisibility } from '../../redux/actions';
 
 const GeneralSettings = () => {
-  const fontFaceOptions = ['test1', 'test2', 'test3']
+  const fontFaceOptions = ['test1', 'test2', 'test3'];
   const cursorShapeOptions = {
     bar: 'bar ( ┃ )', 
     vintage: 'vintage ( ▃ )', 
     underscore: 'underscore ( ▁ )', 
     filledBox: 'filledBox ( █ )', 
     emptyBox: 'emptyBox ( ▯ )'
-  }
+  };
 
   const dispatch = useDispatch();
   const terminalReducer  = useSelector(state => state.terminalReducer);
-  const isScrollbarVisible = useSelector(state => state.terminalReducer.scrollbarVisibility)
-  const cursorShape = useSelector(state => state.terminalReducer.cursorShape)
+  const isScrollbarVisible = useSelector(state => state.terminalReducer.scrollbarVisibility);
+  const cursorShape = useSelector(state => state.terminalReducer.cursorShape);
 
   const onNameChange = (e) => {
-    dispatch(setTitle(e.target.value))
-  }
+    dispatch(setTitle(e.target.value));
+  };
 
   const onFontFaceChange = (value) => {
-    dispatch(setTitle(value))
-  }
+    dispatch(setTitle(value));
+  };
 
   const onFontWeightChange = (value) => {
-    dispatch(setTitle(value))
-  }
+    dispatch(setTitle(value));
+  };
 
   const onCursorShapeChange = (value) => {
-    console.log(value)
-    var value = value.replace( /\s\([^)]*\)/gm, "");
-    dispatch(setCursorShape(value))
-  }
+    console.log(value);
+    var value = value.replace( /\s\([^)]*\)/gm, '');
+    dispatch(setCursorShape(value));
+  };
 
   const onCloseOnExitChange = (value) => {
-    dispatch(setTitle(value))
-  }
+    dispatch(setTitle(value));
+  };
 
   const onScrollbarVisibilityChange = (value) => {
-    dispatch(setScrollbarVisibility(value))
-  }
+    dispatch(setScrollbarVisibility(value));
+  };
 
   return (
     <div className="general-settings">
@@ -62,6 +62,6 @@ const GeneralSettings = () => {
       </div>
     </div>
   );
-}
+};
 
 export default GeneralSettings;

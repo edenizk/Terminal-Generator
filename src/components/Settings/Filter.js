@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
 import { Sliders, Image, Crop, Command, Sidebar } from 'react-feather';
-import { setFilterIndex } from '../../redux/actions'
+import { setFilterIndex } from '../../redux/actions';
 
 const Filter = () => {
-  const filterIndex = useSelector(state => state.filterReducer.filterIndex)
+  const filterIndex = useSelector(state => state.filterReducer.filterIndex);
   const dispatch = useDispatch();
   const [activaIcon, setActivaIcon] = useState(0);
 
   const filterIndexHook = (value) => {
-    dispatch(setFilterIndex(value))
-    setActivaIcon(value)
-  }
+    dispatch(setFilterIndex(value));
+    setActivaIcon(value);
+  };
 
   return (
     <div className="filter">
@@ -38,6 +38,6 @@ const Filter = () => {
     </div>
   );
 
-}
+};
 
 export default Filter;

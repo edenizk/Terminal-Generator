@@ -1,27 +1,27 @@
 import React from 'react';
 import { SliderInput } from '../Input';
-import { useDispatch, useSelector } from 'react-redux'
-import { setPadding } from '../../redux/actions'
+import { useDispatch, useSelector } from 'react-redux';
+import { setPadding } from '../../redux/actions';
 
 const Padding = () => {
   const dispatch = useDispatch();
-  const padding = useSelector(state => state.terminalReducer.padding)
+  const padding = useSelector(state => state.terminalReducer.padding);
 
   const setPaddingValueTop = (value) => {
-    dispatch(setPadding(value, 'TOP'))
-  }
+    dispatch(setPadding(value, 'TOP'));
+  };
 
   const setPaddingValueRight = (value) => {
-    dispatch(setPadding(value, 'RIGHT'))
-  }
+    dispatch(setPadding(value, 'RIGHT'));
+  };
 
   const setPaddingValueBottom = (value) => {
-    dispatch(setPadding(value, 'BOTTOM'))
-  }
+    dispatch(setPadding(value, 'BOTTOM'));
+  };
 
   const setPaddingValueLeft = (value) => {
-    dispatch(setPadding(value, 'LEFT'))
-  }
+    dispatch(setPadding(value, 'LEFT'));
+  };
 
   return (
     <div className="general-settings">
@@ -34,6 +34,6 @@ const Padding = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Padding;

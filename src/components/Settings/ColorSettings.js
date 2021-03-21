@@ -10,6 +10,6 @@ const ColorSettings = () => {
       </div>
     </div>
   );
-}
+};
 
 export default ColorSettings;

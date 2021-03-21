@@ -10,6 +10,6 @@ const KeyboardSettings = () => {
       </div>
     </div>
   );
-}
+};
 
 export default KeyboardSettings;
