@@ -3,7 +3,7 @@
   position: absolute;
   max-width: 1440px;
   width: 100%;
-  padding: 20px 100px;
+  padding: 20px 0;
   background-color: white;
   box-shadow: 5px -5px 20px rgba(0, 0, 0, 0.2);
   max-height: 31.25vw;
@@ -49,8 +49,14 @@
     transform: rotate(180deg);
   }
 
-  .AdvanceSettingsTemplate {
+  &__content {
     overflow: auto;
+    height: inherit;
+    padding: 2.73vw 5.47vw 8.21vw;
+  }
+
+  .AdvanceSettingsTemplate {
+    // overflow: auto;
     max-height: 450px;
   }
 }

@@ -5,13 +5,20 @@ import { setTitle, setCursorShape, setScrollbarVisibility } from '../../redux/ac
 
 const GeneralSettings = () => {
   const fontFaceOptions = ['test1', 'test2', 'test3']
-  const cursorShapeOptions = ['bar ( ┃ )', 'vintage ( ▃ )', 'underscore ( ▁ )', 'filledBox ( █ )', 'emptyBox ( ▯ )']
+  const cursorShapeOptions = {
+    bar: 'bar ( ┃ )', 
+    vintage: 'vintage ( ▃ )', 
+    underscore: 'underscore ( ▁ )', 
+    filledBox: 'filledBox ( █ )', 
+    emptyBox: 'emptyBox ( ▯ )'
+  }
 
   const dispatch = useDispatch();
+  const terminalReducer  = useSelector(state => state.terminalReducer);
   const isScrollbarVisible = useSelector(state => state.terminalReducer.scrollbarVisibility)
   const cursorShape = useSelector(state => state.terminalReducer.cursorShape)
 
-  const onnameChange = (e) => {
+  const onNameChange = (e) => {
     dispatch(setTitle(e.target.value))
   }
 
@@ -25,6 +32,7 @@ const GeneralSettings = () => {
 
   const onCursorShapeChange = (value) => {
     console.log(value)
+    var value = value.replace( /\s\([^)]*\)/gm, "");
     dispatch(setCursorShape(value))
   }
 
@@ -40,12 +48,17 @@ const GeneralSettings = () => {
     <div className="general-settings">
       <h2 className="general-settings__title settings-title">General Settings</h2>
       <div className="general-settings__content content">
-        <Input title="Tab Title" event={onnameChange}></Input>
-        <Dropdown title="Font Face" options={fontFaceOptions}></Dropdown>
+        <Input title="Tab Title" event={onNameChange} value={terminalReducer.name ?? ''} required></Input>
+        <Dropdown title="Font Face" options={fontFaceOptions} activeOption={terminalReducer.fontFace}></Dropdown>
         <Dropdown title="Font Weight" options={fontFaceOptions}></Dropdown>
-        <Dropdown title="Cursor Shape" options={cursorShapeOptions} activeOption={cursorShape} event={onCursorShapeChange}></Dropdown>
+        <Dropdown 
+          title="Cursor Shape" 
+          options={Object.values(cursorShapeOptions)} 
+          activeOption={cursorShapeOptions[terminalReducer.cursorShape ?? 'bar']} 
+          event={onCursorShapeChange}
+        />
         <Dropdown title="Close on Exit" options={fontFaceOptions}></Dropdown>
-        <Checkbox name="Scrollbar visibility" isChecked={isScrollbarVisible} event={onScrollbarVisibilityChange}></Checkbox>
+        <Checkbox name="Scrollbar visibility" isChecked={terminalReducer.isScrollbarVisible ?? true} event={onScrollbarVisibilityChange}></Checkbox>
       </div>
     </div>
   );

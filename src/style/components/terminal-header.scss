@@ -21,6 +21,12 @@
     align-items: center;
   }
 
+  &__title {
+    margin-right: 30px;
+    overflow: hidden;
+    white-space: pre;
+  }
+
   &__icon {
     margin-right: 15px;
     width: 28px;

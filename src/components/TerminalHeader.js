@@ -13,7 +13,7 @@ function TerminalHeader() {
           icon ? <img className="terminal-header__icon" src={icon} alt="tab icon"></img>  : 
                 <Slash className="terminal-header__icon terminal-header__icon--missing"></Slash>
         }
-        <h2 className="terminal-header__title">{title ? title : 'Windows PowerShell'}</h2>
+        <h2 className="terminal-header__title">{title ?? ''}</h2>
         <X className="terminal-header__close"/>
       </div>
       <Plus className="terminal-header__add"/>
