@@ -19,7 +19,6 @@ const Dropdown = (props) => {
       </div>
       <ul className={`dropdown__options${ optionsActive ? ' dropdown__options--active' : '' }`} >
         { 
-        options ??
           options.map( (option, index) => {
             return <li 
               key={index}
