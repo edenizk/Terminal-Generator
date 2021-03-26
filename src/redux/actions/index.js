@@ -5,6 +5,13 @@ export const setFilterIndex = (value) => {
   };
 };
 
+export const setFontFaces = (value) => {
+  return {
+    type: 'SET_FONT_FACES',
+    payload: value
+  };
+};
+
 export const setTitle = (title) => {
   return {
     type: 'SET_TITLE',

@@ -1,10 +1,15 @@
 import React from 'react';
-import { Input, Dropdown, Checkbox } from '../Input';
+import { Input, Dropdown, Checkbox, GoogleFontsDropdown } from '../Input';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTitle, setCursorShape, setScrollbarVisibility } from '../../redux/actions';
+import { GetGoogleFonts } from '../../api/GetGoogleFonts';
 
 const GeneralSettings = () => {
-  const fontFaceOptions = ['test1', 'test2', 'test3'];
+  const dispatch = useDispatch();
+
+  dispatch(GetGoogleFonts());
+  const fontWeight = ['test1', 'test2', 'test3'];
+
   const cursorShapeOptions = {
     bar: 'bar ( ┃ )', 
     vintage: 'vintage ( ▃ )', 
@@ -13,10 +18,11 @@ const GeneralSettings = () => {
     emptyBox: 'emptyBox ( ▯ )'
   };
 
-  const dispatch = useDispatch();
+  const fontFaces = useSelector(state => state.filterReducer.fontFaces);
   const terminalReducer  = useSelector(state => state.terminalReducer);
-  const isScrollbarVisible = useSelector(state => state.terminalReducer.scrollbarVisibility);
-  const cursorShape = useSelector(state => state.terminalReducer.cursorShape);
+  // const isScrollbarVisible = useSelector(state => state.terminalReducer.scrollbarVisibility);
+  // const cursorShape = useSelector(state => state.terminalReducer.cursorShape);
+
 
   const onNameChange = (e) => {
     dispatch(setTitle(e.target.value));
@@ -31,7 +37,6 @@ const GeneralSettings = () => {
   };
 
   const onCursorShapeChange = (value) => {
-    console.log(value);
     var value = value.replace( /\s\([^)]*\)/gm, '');
     dispatch(setCursorShape(value));
   };
@@ -49,15 +54,19 @@ const GeneralSettings = () => {
       <h2 className="general-settings__title settings-title">General Settings</h2>
       <div className="general-settings__content content">
         <Input title="Tab Title" event={onNameChange} value={terminalReducer.name ?? ''} required></Input>
-        <Dropdown title="Font Face" options={fontFaceOptions} activeOption={terminalReducer.fontFace}></Dropdown>
-        <Dropdown title="Font Weight" options={fontFaceOptions}></Dropdown>
+        <GoogleFontsDropdown 
+          title="Font Face" 
+          options={!fontFaces ? ['Loading...'] : fontFaces} 
+          activeOption={terminalReducer.fontFace} 
+        />
+        <Dropdown title="Font Weight" options={fontWeight}></Dropdown>
         <Dropdown 
           title="Cursor Shape" 
           options={Object.values(cursorShapeOptions)} 
           activeOption={cursorShapeOptions[terminalReducer.cursorShape ?? 'bar']} 
           event={onCursorShapeChange}
         />
-        <Dropdown title="Close on Exit" options={fontFaceOptions}></Dropdown>
+        <Dropdown title="Close on Exit" options={fontWeight}></Dropdown>
         <Checkbox name="Scrollbar visibility" isChecked={terminalReducer.isScrollbarVisible ?? true} event={onScrollbarVisibilityChange}></Checkbox>
       </div>
     </div>

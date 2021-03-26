@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'react-feather';
-
-const Dropdown = (props) => {
+// TODO: CHANGE THIS TO SEARCH DROP DOWN
+const GoogleFontsDropdown = (props) => {
   const { title, options, activeOption, event } = props;
   const [optionsActive, setOptionsActive] = useState(false);
 
@@ -17,14 +17,13 @@ const Dropdown = (props) => {
         <span className="dropdown__selected">{ activeOption }</span>
         <ChevronDown className="dropdown__icon"></ChevronDown>
       </div>
-      <ul className={`dropdown__options${ optionsActive ? ' dropdown__options--active' : '' }`} >
+      <ul className={`dropdown__options${ optionsActive && ' dropdown__options--active' }`} >
         { 
-        options ??
-          options.map( (option, index) => {
+          options.slice(0, 100).map( (option, index) => {
             return <li 
               key={index}
-              className={`dropdown__option${ activeOption === option ? ' dropdown__option--selected' : '' }`} 
-              onClick={ () => setSelected(option)}>{option}</li>;
+              className={`dropdown__option${ activeOption === option.family && ' dropdown__option--selected' }`} 
+              onClick={ () => setSelected(option.family)}>{option.family}</li>;
           })}
       </ul>
     </div>
@@ -32,4 +31,4 @@ const Dropdown = (props) => {
     
 };
  
-export default Dropdown;
+export default GoogleFontsDropdown;
