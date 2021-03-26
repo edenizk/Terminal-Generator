@@ -11,7 +11,6 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.21.1",
-    "get-system-fonts": "^2.0.2",
     "material-ui-slider": "^3.0.8",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
