@@ -7,6 +7,9 @@ const ResultCard = () => {
   const [isClose, setIsClose] = useState(true);
   const terminalReducer = useSelector(state => state.terminalReducer);
   const defaultValueReducer = useSelector(state => state.defaultValueReducer);
+  const filterReducer = useSelector(state => state.filterReducer);
+  const fontLink = 
+  filterReducer.fontObject.files && filterReducer.fontObject.files[terminalReducer.fontWeight];
   const [settings, setSettings] = useState({});
 
   const openCard = () => {
@@ -54,17 +57,28 @@ const ResultCard = () => {
   // }
 
   return (
-    <div className={`resultCard resultCard--${isClose && 'closed'}`} onClick={openCard}>
-      <div className="resultCard__toggle" onClick={closeCard}>
+    <details 
+      className={`resultCard${isClose ? ' resultCard--closed' : ''}`} 
+      onClick={openCard}
+      open={!isClose}
+    >
+      <summary className="resultCard__toggle" onClick={closeCard}>
         <ChevronsUp className="resultCard__toggleIcon"></ChevronsUp>
         <h4 className="resultCard__toggleText">{isClose ? 'Done?' : 'Close'}</h4>
         <ChevronsUp className="resultCard__toggleIcon"></ChevronsUp>
-      </div>
+      </summary>
       <div className="resultCard__content">
+        { fontLink && (
+          <p className="resultCard__googleFont">
+            If you do not have the <span className="resultCard__highlight">{terminalReducer.fontFace}</span> font face installed to your windows 
+            <a className="resultCard__googleFontLink" href={fontLink}> download from here</a>
+            <span className="resultCard__googleFontInfo"> (link generated from google API)</span>
+          </p>
+        )}
         <BasicSettingsTemplate settings={settings}/>
         {/* <AdvanceSettingsTemplate /> */}
       </div>
-    </div>
+    </details>
   );
 };
 
