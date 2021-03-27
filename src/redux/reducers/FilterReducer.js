@@ -1,6 +1,8 @@
 const INITIAL_STATE = Object.freeze({
   filterIndex: 0,
-  fontFaces: []
+  fontFaces: [],
+  fontWeights: [],
+  fontObject: {}
 });
 
 const filterReducer = (state = INITIAL_STATE, action) => {
@@ -14,6 +16,16 @@ const filterReducer = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       fontFaces: action.payload,
+    }; 
+  case 'SET_FONT_WEIGHTS':
+    return {
+      ...state,
+      fontWeights: action.payload,
+    }; 
+  case 'SET_FONT_OBJECT':
+    return {
+      ...state,
+      fontObject: action.payload,
     }; 
   default:
     return state;

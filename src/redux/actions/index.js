@@ -12,6 +12,20 @@ export const setFontFaces = (value) => {
   };
 };
 
+export const setFontWeights = (value) => {
+  return {
+    type: 'SET_FONT_WEIGHTS',
+    payload: value
+  };
+};
+
+export const setFontObject = (value) => {
+  return {
+    type: 'SET_FONT_OBJECT',
+    payload: value
+  };
+};
+
 export const setTitle = (title) => {
   return {
     type: 'SET_TITLE',
@@ -21,7 +35,14 @@ export const setTitle = (title) => {
 
 export const setFontFace = (value) => {
   return {
-    type: 'SET_FONTFACE',
+    type: 'SET_FONT_FACE',
+    payload: value
+  };
+};
+
+export const setFontWeight = (value) => {
+  return {
+    type: 'SET_FONT_WEIGHT',
     payload: value
   };
 };

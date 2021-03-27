@@ -31,10 +31,15 @@ const terminalReducer = (state = INITIAL_STATE, action) => {
       ...state,
       name: action.payload,
     };
-  case 'SET_FONTFACE':
+  case 'SET_FONT_FACE':
     return {
       ...state,
-      fontface: action.payload,
+      fontFace: action.payload,
+    };
+  case 'SET_FONT_WEIGHT':
+    return {
+      ...state,
+      fontWeight: action.payload,
     };
   case 'SET_CURSORSHAPE':
     return {
