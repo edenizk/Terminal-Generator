@@ -23,7 +23,7 @@ const GoogleFontsDropdown = (props) => {
             return <li 
               key={index}
               className={`dropdown__option ${ activeOption === option.family ? 'dropdown__option--selected' : '' }`} 
-              onClick={ () => setSelected(option.family)}>{option.family}</li>;
+              onClick={ () => setSelected(option)}>{option.family}</li>;
           })}
       </ul>
     </div>
