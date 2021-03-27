@@ -16,9 +16,6 @@ const GeneralSettings = () => {
 
   const filterReducer = useSelector(state => state.filterReducer);
   const terminalReducer  = useSelector(state => state.terminalReducer);
-  // const isScrollbarVisible = useSelector(state => state.terminalReducer.scrollbarVisibility);
-  // const cursorShape = useSelector(state => state.terminalReducer.cursorShape);
-
 
   const onNameChange = (e) => {
     dispatch(setTitle(e.target.value));
@@ -29,7 +26,16 @@ const GeneralSettings = () => {
     dispatch(setFontFace(font.family));
     dispatch(setFontWeights(font.variants));
     dispatch(setFontWeight(font.variants[0]));
+    setDOMFontFace(font);
   };
+
+  const setDOMFontFace = (font) => {
+    const url = `https://fonts.googleapis.com/css2?family=${font.family}`
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = url;
+    document.getElementsByTagName('head')[0].appendChild(link);
+  }
 
   const onFontWeightChange = (value) => {
     dispatch(setFontWeight(value));
@@ -40,13 +46,13 @@ const GeneralSettings = () => {
     dispatch(setCursorShape(value));
   };
 
-  const onCloseOnExitChange = (value) => {
-    dispatch(setTitle(value));
-  };
+  // const onCloseOnExitChange = (value) => {
+  //   dispatch(setTitle(value));
+  // };
 
-  const onScrollbarVisibilityChange = (value) => {
-    dispatch(setScrollbarVisibility(value));
-  };
+  // const onScrollbarVisibilityChange = (value) => {
+  //   dispatch(setScrollbarVisibility(value));
+  // };
 
   return (
     <div className="general-settings">
@@ -79,8 +85,8 @@ const GeneralSettings = () => {
           activeOption={cursorShapeOptions[terminalReducer.cursorShape ?? 'bar']} 
           event={onCursorShapeChange}
         />
-        <Dropdown title="Close on Exit" options={['true', 'false']}></Dropdown>
-        <Checkbox name="Scrollbar visibility" isChecked={terminalReducer.isScrollbarVisible ?? true} event={onScrollbarVisibilityChange}></Checkbox>
+        {/* <Dropdown title="Close on Exit" options={['true', 'false']}></Dropdown> */}
+        {/* <Checkbox name="Scrollbar visibility" isChecked={terminalReducer.isScrollbarVisible ?? true} event={onScrollbarVisibilityChange}></Checkbox> */}
       </div>
     </div>
   );
