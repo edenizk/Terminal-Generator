@@ -59,4 +59,26 @@
     // overflow: auto;
     max-height: 450px;
   }
+
+  &__googleFontLink {
+    color: $cOrange;
+  }
+
+  &__googleFontInfo {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity .3s, transform .3s;
+    display: inline-block;
+    pointer-events: none;
+    z-index: -1;
+
+    #{$p}__googleFontLink:hover + & {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  &__highlight {
+    color: $cOrange;
+  }
 }

@@ -40,6 +40,7 @@
         background-size: contain;
         opacity: .3;
         background-repeat: no-repeat;
+        pointer-events: none;
     }
 
     &__paragraph {
@@ -49,6 +50,7 @@
     }
 
     &__cursorShape {
+        margin-left: 6px;
         animation: pulse 1s infinite;
     }
 }
