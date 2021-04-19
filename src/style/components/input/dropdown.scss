@@ -23,6 +23,8 @@
         border-radius: 5px;
         display: none;
         z-index: 1;
+        max-height: 200px;
+        overflow: auto;
 
         &--active {
             display: block;

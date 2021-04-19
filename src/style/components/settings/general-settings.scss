@@ -28,3 +28,17 @@ body {
     color: $cLightOrange;
     padding: 2.18vw 1.09vw;
 }
+
+.highlight {
+    color: $cOrange;
+}
+
+.btn-primary {
+    border: 1px solid rgba($cBlack, .3);
+    border-radius: 0.2rem;
+    padding: 0.5rem;
+
+    &:active {
+        background-color: rgba($cBlack, .3);
+    }
+}

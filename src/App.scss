@@ -8,12 +8,14 @@
 @import './style/settings/layout';
 @import './style/settings/animations';
 @import './style/settings/typography';
+@import './style/settings/rich-text';
 
 // Components
 @import './style/components/global-header';
 @import './style/components/terminal-header';
 @import './style/components/terminal';
 @import './style/components/resultCard';
+@import './style/components/basic-settings-template';
 
 // Components/Settings
 @import './style/components/settings/settings-wrapper';
