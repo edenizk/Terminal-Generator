@@ -4,6 +4,7 @@ const INITIAL_STATE = Object.freeze({
   fontWeight: 'Normal',
   cursorShape: 'bar',
   closeOnExit: 'graceful',
+  commandLine: 'cmd.exe',
   icon: null,
   backgroundImage: '/static/media/kity_space.9c0b8aa9.gif',
   backgroundImageOpacity: 50,
