@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ChevronsUp } from 'react-feather';
 import { useSelector } from 'react-redux';
 import BasicSettingsTemplate from './BasicSettingsTemplate';
+import AdvanceSettingsTemplate from './AdvanceSettingsTemplate'
 
 const ResultCard = () => {
   const [isClose, setIsClose] = useState(true);
@@ -68,15 +69,36 @@ const ResultCard = () => {
         <ChevronsUp className="resultCard__toggleIcon"></ChevronsUp>
       </summary>
       <div className="resultCard__content">
-        { fontLink && (
-          <p className="resultCard__googleFont">
-            If you do not have the <span className="resultCard__highlight">{terminalReducer.fontFace}</span> font face installed to your windows 
-            <a className="resultCard__googleFontLink" href={fontLink}> download from here</a>
-            <span className="resultCard__googleFontInfo"> (link generated from google API)</span>
-          </p>
-        )}
+        <div className="resultCard__description richText">
+          { fontLink && (
+            <p className="resultCard__googleFont">
+              If you do not have the <span className="highlight">{terminalReducer.fontFace}</span> font face installed to your windows 
+              <a className="resultCard__googleFontLink" href={fontLink}> download from here</a>
+              <span className="resultCard__googleFontInfo"> (link generated from google API)</span>
+            </p>
+          )}
+          <p>You can exchange commandLine with the command line you would want to use.(e.g. powershell.exe, cmd.exe, etc.)</p>
+          <br/>
+          <p>For applying below setting:</p>
+          <ol>
+            <li>
+              Copy Below code
+            </li>
+            <li>Open Windows Terminal Settings
+              <ul>
+                <li>You can click down arrow next to add new tab icon and than settings</li>
+                <li>Or you open Windows Terminal and press <span className="highlight">CTRL+,</span></li>
+              </ul>
+            </li>
+            <li>Paste inside the list array (<span className="highlight">{' list: [ '}</span>)</li>
+          </ol>
+        </div>
+
         <BasicSettingsTemplate settings={settings}/>
-        {/* <AdvanceSettingsTemplate /> */}
+        <div className="resultCard__description richText">
+          <p>Below is how the code should look like in default settings file. You can also copy paste whole thing to your settings.json file</p>
+        </div>
+        <AdvanceSettingsTemplate settings={settings} />
       </div>
     </details>
   );
