@@ -13,10 +13,12 @@
   transform: translateX(-50%);
   border-radius: 30px 30px 0 0;
   transition: top .3s;
+  overflow: auto;
 
   &--closed {
     top: calc(100% - 60px);
     cursor: pointer;
+    overflow: hidden;
 
     &:hover {
       top: calc(100% - 130px);
