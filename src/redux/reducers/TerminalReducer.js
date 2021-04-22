@@ -6,7 +6,7 @@ const INITIAL_STATE = Object.freeze({
   closeOnExit: 'graceful',
   commandLine: 'cmd.exe',
   icon: null,
-  backgroundImage: '/static/media/kity_space.9c0b8aa9.gif',
+  backgroundImage: 'kity_space.9c0b8aa9.gif',
   backgroundImageOpacity: 50,
   backgroundImageAlignment: 'Center',
   backgroundImageStretchMode: 'None',
