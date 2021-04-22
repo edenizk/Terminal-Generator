@@ -5,8 +5,10 @@ import defaultBackground from '../images/kity_space.gif';
 
 function Terminal() {
   const terminalReducer = useSelector(state => state.terminalReducer);
+	const settingsReducer = useSelector((state) => state.settingsReducer);
   const cursorShape = terminalReducer.cursorShape;
-  
+  const image = settingsReducer.backgroundImage;
+
   const cursorShapeOptions = {
     bar: '┃', 
     vintage: '▃', 
@@ -30,7 +32,7 @@ function Terminal() {
         <div 
           className="terminal__backgroundImage" 
           style={{
-            backgroundImage:`url("${terminalReducer.backgroundImage ?? ''}")`,
+            backgroundImage:`url("${image ?? ''}")`,
             opacity:terminalReducer.backgroundImageOpacity / 100,
           }}></div>
         <p className="terminal__paragraph">Your Favorite Shell ❤</p>
