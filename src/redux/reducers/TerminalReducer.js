@@ -1,3 +1,5 @@
+import PAD_DIR from '../../helpers/PaddingDir'
+
 const INITIAL_STATE = Object.freeze({
   name: 'Terminal Generator Shell',
   fontFace: 'Cascadia Mono',
@@ -13,16 +15,17 @@ const INITIAL_STATE = Object.freeze({
   backgroundColor: '#472148', // THIS SET AS ONLY BACKGROUND IN SETTINGS.JSON
   useAcrylic: true,
   acrylicOpacity: 50,
-  padding: {
-    top: 8,
-    right: 8,
-    bottom: 8,
-    left: 8
-  },
+  padding: '8, 8, 8, 8',
   scrollbarVisibility: true, // Property name: scrollbarState
   scrollToInput: true, // Property name: snapOnInput
   historySize: 9001
 });
+
+const paddingString = (index, value, currPaddings) => {
+  let paddings = currPaddings.split(',');
+  paddings[index] = value;
+  return paddings.join(',');
+}
   
 
 const terminalReducer = (state = INITIAL_STATE, action) => {
@@ -95,34 +98,23 @@ const terminalReducer = (state = INITIAL_STATE, action) => {
   case 'SET_PADDING_TOP':
     return {
       ...state,
-      padding: {
-        ...state.padding,
-        top: action.payload
-      }
+      padding: paddingString(PAD_DIR.top, action.payload, state.padding)
     };
   case 'SET_PADDING_BOTTOM':
     return {
       ...state,
-      padding: {
-        ...state.padding,
-        bottom: action.payload
-      }
+      padding: paddingString(PAD_DIR.bottom, action.payload, state.padding)
+
     };
   case 'SET_PADDING_LEFT':
     return {
       ...state,
-      padding: {
-        ...state.padding,
-        left: action.payload
-      }
+      padding: paddingString(PAD_DIR.left, action.payload, state.padding)
     };
   case 'SET_PADDING_RIGHT':
     return {
       ...state,
-      padding: {
-        ...state.padding,
-        right: action.payload
-      }
+      padding: paddingString(PAD_DIR.right, action.payload, state.padding)
     };
   case 'SET_SCROLLBAR_VISIBILITY':
     return {

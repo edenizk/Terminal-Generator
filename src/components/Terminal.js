@@ -1,14 +1,15 @@
 import React from 'react';
 import TerminalHeader from './TerminalHeader';
 import { useSelector } from 'react-redux';
-import defaultBackground from '../images/kity_space.gif';
+import PAD_DIR from '../helpers/PaddingDir';
 
 function Terminal() {
   const terminalReducer = useSelector(state => state.terminalReducer);
 	const settingsReducer = useSelector((state) => state.settingsReducer);
   const cursorShape = terminalReducer.cursorShape;
   const image = settingsReducer.backgroundImage;
-
+  const paddingsArray = terminalReducer.padding.split(',');
+  console.log(paddingsArray);
   const cursorShapeOptions = {
     bar: '┃', 
     vintage: '▃', 
@@ -22,10 +23,10 @@ function Terminal() {
     <div className="terminal">
       <TerminalHeader />
       <div className="terminal__content" style={{
-        paddingTop: terminalReducer.padding.top,
-        paddingRight: terminalReducer.padding.right,
-        paddingBottom: terminalReducer.padding.bottom,
-        paddingLeft: terminalReducer.padding.left,
+        paddingTop: paddingsArray[PAD_DIR.top] + 'px',
+        paddingRight: paddingsArray[PAD_DIR.right] + 'px',
+        paddingBottom: paddingsArray[PAD_DIR.bottom] + 'px',
+        paddingLeft: paddingsArray[PAD_DIR.left] + 'px',
         fontFamily: terminalReducer.fontFace,
         fontWeight: terminalReducer.fontWeight,
       }}>

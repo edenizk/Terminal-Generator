@@ -2,12 +2,15 @@ import React from 'react';
 import { SliderInput } from '../Input';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPadding } from '../../redux/actions';
+import PAD_DIR from '../../helpers/PaddingDir'
 
 const Padding = () => {
   const dispatch = useDispatch();
   const padding = useSelector(state => state.terminalReducer.padding);
+  const paddingsArray = padding.split(',');
 
   const setPaddingValueTop = (value) => {
+    console.log(padding);
     dispatch(setPadding(value, 'TOP'));
   };
 
@@ -27,10 +30,10 @@ const Padding = () => {
     <div className="general-settings">
       <h2 className="general-settings__title settings-title">Padding</h2>
       <div className="general-settings__content content">
-        <SliderInput title="Top" max={500} event={setPaddingValueTop} value={padding.top} valueText={padding.top}></SliderInput>
-        <SliderInput title="Right" max={500} event={setPaddingValueRight} value={padding.right}  valueText={padding.right}></SliderInput>
-        <SliderInput title="Bottom" max={500} event={setPaddingValueBottom} value={padding.bottom}  valueText={padding.bottom}></SliderInput>
-        <SliderInput title="Left" max={500} event={setPaddingValueLeft} value={padding.left}  valueText={padding.left}></SliderInput>
+        <SliderInput title="Top" max={500} event={setPaddingValueTop} value={paddingsArray[PAD_DIR.top]} valueText={paddingsArray[PAD_DIR.top]}></SliderInput>
+        <SliderInput title="Right" max={500} event={setPaddingValueRight} value={paddingsArray[PAD_DIR.right]}  valueText={paddingsArray[PAD_DIR.right]}></SliderInput>
+        <SliderInput title="Bottom" max={500} event={setPaddingValueBottom} value={paddingsArray[PAD_DIR.bottom]}  valueText={paddingsArray[PAD_DIR.bottom]}></SliderInput>
+        <SliderInput title="Left" max={500} event={setPaddingValueLeft} value={paddingsArray[PAD_DIR.left]}  valueText={paddingsArray[PAD_DIR.left]}></SliderInput>
       </div>
     </div>
   );
