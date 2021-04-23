@@ -2,20 +2,17 @@ import React, { useState } from 'react';
 import { FilePlus, Trash2 } from 'react-feather';
 
 const AddImage = (props) => {
-  const { title,  event } = props;
-  const [imageSrc, setImageSrc] = useState('');
+  const { title, event, imageSrc } = props;
   const [fileName, setFileName] = useState('');
-
+  
   const handleImageChange = (file) => {
     const src = URL.createObjectURL(file.target.files[0])
     const name = file.target.files[0].name
-    setImageSrc(src);
     setFileName(name);
     event(src, name);
   }
 
   const removeImage = () => {
-    setImageSrc('');
     setFileName('');
     event('', '');
   }
