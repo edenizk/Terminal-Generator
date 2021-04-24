@@ -1,9 +1,9 @@
 // Padding Direction
 const PAD_DIR = Object.freeze({
-  "top": 0,
-  "right": 1,
-  "bottom": 2,
-  "left": 3
+  "left": 0,
+  "top": 1,
+  "right": 2,
+  "bottom": 3
 });
 
 export default PAD_DIR;
