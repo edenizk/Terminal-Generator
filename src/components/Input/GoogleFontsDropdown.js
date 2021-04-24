@@ -4,11 +4,19 @@ import { ChevronDown } from 'react-feather';
 const GoogleFontsDropdown = (props) => {
   const { title, options, activeOption, event } = props;
   const [optionsActive, setOptionsActive] = useState(false);
+  const [limit, setlimit] = useState(20)
+  const list = React.createRef();
 
   const setSelected = (value) => {
     setOptionsActive(false);
     event(value);
   };
+
+  const handleScroll = () => {
+    if (list.current.offsetHeight + list.current.scrollTop >= list.current.scrollHeight) {
+      setlimit(limit + 10);
+    }
+  }
 
   return ( 
     <div className="dropdown">
@@ -17,9 +25,13 @@ const GoogleFontsDropdown = (props) => {
         <span className="dropdown__selected">{ activeOption }</span>
         <ChevronDown className="dropdown__icon"></ChevronDown>
       </div>
-      <ul className={`dropdown__options ${ optionsActive ? 'dropdown__options--active' : '' }`} >
+      <ul 
+        className={`dropdown__options ${ optionsActive ? 'dropdown__options--active' : '' }`} 
+        ref={list}
+        onScroll={() => handleScroll()}
+      >
         { 
-          options.slice(0, 20).map( (option, index) => {
+          options.slice(0, limit).map( (option, index) => {
             return <li 
               key={index}
               className={`dropdown__option ${ activeOption === option.family ? 'dropdown__option--selected' : '' }`} 
@@ -30,5 +42,5 @@ const GoogleFontsDropdown = (props) => {
   );
     
 };
- 
+
 export default GoogleFontsDropdown;
