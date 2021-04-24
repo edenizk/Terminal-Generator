@@ -18,12 +18,10 @@ const ResultCard = () => {
 
     // generateColumns();
     removeEmptyValues();
-    console.log('test');
     setIsClose(false);
   };
 
   const closeCard = () => {
-    console.log('closed');
     setIsClose(true);
   };
 
@@ -31,19 +29,15 @@ const ResultCard = () => {
     const tmpSettings = {};
 
     Object.keys(terminalReducer).forEach((prop) => {
-      console.log('prop', prop);
       if (
         terminalReducer[prop] !== null &&
         JSON.stringify(terminalReducer[prop]) !== JSON.stringify(defaultValueReducer[prop])
       ) {
-        console.log('includes');
         tmpSettings[prop] = terminalReducer[prop];
       }
     });
 
     setSettings(tmpSettings);
-
-    console.log(settings);
   };
 
   // const generateColumns = () => {
@@ -86,11 +80,15 @@ const ResultCard = () => {
             </li>
             <li>Open Windows Terminal Settings
               <ul>
-                <li>You can click down arrow next to add new tab icon and than settings</li>
+                <li>You can click down arrow next to the add new tab icon -> select settings -> Open JSON file</li>
                 <li>Or you open Windows Terminal and press <span className="highlight">CTRL+,</span></li>
               </ul>
             </li>
             <li>Paste inside the list array (<span className="highlight">{' list: [ '}</span>)</li>
+            {
+              terminalReducer.backgroundImage !== '' &&
+                <li><span className="highlight">NOTE:</span> You need to set directory/path of the background image (e. g. "C:\\Users\\YOUR_USERNAME\\image.PNG")</li>
+            }
           </ol>
         </div>
 

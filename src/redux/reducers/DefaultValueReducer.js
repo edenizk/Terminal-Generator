@@ -1,6 +1,6 @@
 const INITIAL_STATE = Object.freeze({
   name: 'test',
-  fontFace: 'Cascadia Mono',
+  fontFace: '',
   fontWeight: 'Normal',
   cursorShape: 'bar',
   closeOnExit: 'graceful',
@@ -12,12 +12,7 @@ const INITIAL_STATE = Object.freeze({
   backgroundColor: '#472148', // THIS SET AS ONLY BACKGROUND IN SETTINGS.JSON
   useAcrylic: true,
   acrylicOpacity: 50,
-  padding: {
-    top: 8,
-    right: 8,
-    bottom: 8,
-    left: 8
-  },
+  padding: '8, 8, 8, 8',
   scrollbarVisibility: true, // Property name: scrollbarState
   scrollToInput: true, // Property name: snapOnInput
   historySize: 9001

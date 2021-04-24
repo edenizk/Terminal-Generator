@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
+import image from '../../images/kity_space.gif'
 
 const initialState = {
-	backgroundImage: '/static/media/kity_space.9c0b8aa9.gif'
+	backgroundImage: image
 };
 
 export const settingsReducer = createSlice({

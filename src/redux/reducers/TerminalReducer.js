@@ -2,13 +2,13 @@ import PAD_DIR from '../../helpers/PaddingDir'
 
 const INITIAL_STATE = Object.freeze({
   name: 'Terminal Generator Shell',
-  fontFace: 'Cascadia Mono',
-  fontWeight: 'Normal',
+  fontFace: '',
+  fontWeight: '',
   cursorShape: 'bar',
   closeOnExit: 'graceful',
   commandLine: 'cmd.exe',
   icon: null,
-  backgroundImage: 'kity_space.9c0b8aa9.gif',
+  backgroundImage: 'kity_space.gif',
   backgroundImageOpacity: 50,
   backgroundImageAlignment: 'Center',
   backgroundImageStretchMode: 'None',

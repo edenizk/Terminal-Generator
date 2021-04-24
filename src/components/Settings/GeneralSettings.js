@@ -66,17 +66,19 @@ const GeneralSettings = () => {
               ['Loading...'] : 
               filterReducer.fontFaces
           } 
-          activeOption={terminalReducer.fontFace} 
+          activeOption={terminalReducer.fontFace === '' ? 'Choose a Font Face' : terminalReducer.fontFace} 
           event={onFontChange}
         />
         <Dropdown 
           title="Font Weight" 
-          activeOption={terminalReducer.fontWeight} 
           options={
-            !filterReducer.fontWeights ? 
-              ['Loading...'] : 
+            !filterReducer.fontWeights ?
+              (terminalReducer.fontFace === '' ? ['Choose a Font Face First'] : ['Loading...']) : 
               filterReducer.fontWeights
           } 
+          activeOption={terminalReducer.fontWeight.length === 0 
+            ? 'Choose a Font Weight' 
+            : terminalReducer.fontWeight} 
           event={onFontWeightChange}
         />
         <Dropdown 
