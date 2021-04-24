@@ -9,7 +9,7 @@ function Terminal() {
   const cursorShape = terminalReducer.cursorShape;
   const image = settingsReducer.backgroundImage;
   const paddingsArray = terminalReducer.padding.split(',');
-  console.log(paddingsArray);
+
   const cursorShapeOptions = {
     bar: '┃', 
     vintage: '▃', 
@@ -43,6 +43,12 @@ function Terminal() {
           </span>
         </p>
       </div>
+      {
+        terminalReducer.backgroundImage === 'kity_space.gif' &&
+          <a className="terminal__credit" target="_blank" href="https://giphy.com/stickers/transparent-catpaw-QWRTFvymri1XABdEFA">
+            Kitty Gif Credit: <span className="highlight">catpaw</span>
+          </a>
+      }
     </div>
   );
 }
