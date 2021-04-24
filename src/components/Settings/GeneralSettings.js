@@ -1,7 +1,7 @@
 import React from 'react';
-import { Input, Dropdown, Checkbox, GoogleFontsDropdown } from '../Input';
+import { Input, Dropdown, GoogleFontsDropdown } from '../Input';
 import { useDispatch, useSelector } from 'react-redux';
-import { setTitle, setFontWeight, setCursorShape, setFontObject, setScrollbarVisibility, setFontFace, setFontWeights } from '../../redux/actions';
+import { setTitle, setFontWeight, setCursorShape, setFontObject, setFontFace, setFontWeights } from '../../redux/actions';
 
 const GeneralSettings = () => {
   const dispatch = useDispatch();
@@ -42,7 +42,7 @@ const GeneralSettings = () => {
   };
 
   const onCursorShapeChange = (value) => {
-    var value = value.replace( /\s\([^)]*\)/gm, '');
+    value = value.replace( /\s\([^)]*\)/gm, '');
     dispatch(setCursorShape(value));
   };
 

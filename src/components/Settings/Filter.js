@@ -6,13 +6,14 @@ import { setFilterIndex } from '../../redux/actions';
 const Filter = () => {
   const filterIndex = useSelector(state => state.filterReducer.filterIndex);
   const dispatch = useDispatch();
-  const [activaIcon, setActivaIcon] = useState(0);
+  const [, setActivaIcon] = useState(0);
 
   const filterIndexHook = (value) => {
     dispatch(setFilterIndex(value));
     setActivaIcon(value);
   };
 
+  // TODO Create a Enum or sth for fixing magic numbers
   return (
     <div className="filter">
       <ul className="filter__icons">

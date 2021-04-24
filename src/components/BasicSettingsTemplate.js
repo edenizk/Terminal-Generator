@@ -20,7 +20,7 @@ const BasicSettingsTemplate = ({ settings }) => {
       <button className="btn-primary" onClick={() => copyHandle(navigator)}>Copy text</button>
       {
         isCopied &&
-          <span className="highlight"> Ready to Paste 🤘</span>
+          <span className="highlight"> Ready to Paste <span role="img" aria-labelledby="Rock And Roll">🤘</span></span>
       }
       <p className="multiline code">
         {`${JSON.stringify(settings, null, '\t')}`}

@@ -1,4 +1,5 @@
 /* eslint-disable quote-props */
+// TODO Add magic numbers not allowed rule
 module.exports = {
   'env': {
     'browser': true,
