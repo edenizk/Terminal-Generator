@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-function AdvanceSettingsTemplate({ settings }) {
+function AdvanceSettingsTemplate(props) {
+    const { settings } = props;
     const [isCopied, setIsCopied] = useState(false);
 
     const copyHandle = (navigator) => {

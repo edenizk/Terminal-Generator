@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
-const BasicSettingsTemplate = ({ settings }) => {
+const BasicSettingsTemplate = (props) => {
+  const { settings } = props;
+
   const [isCopied, setIsCopied] = useState(false);
 
   const copyHandle = (navigator) => {
