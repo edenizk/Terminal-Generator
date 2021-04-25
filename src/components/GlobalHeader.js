@@ -6,7 +6,7 @@ const GlobalHeader = (pros) => {
   return ( 
     <header className="global-header">
       <div className="global-header__logoWrapper">
-        <img src={logo} className="global-header__logo" alt="logo" />
+        <img src={logo} className="global-header__logo" alt="logo" width="43" height="32" />
         <h1 className="global-header__title">Terminal Generator</h1>
       </div>
       <nav className="global-header__contact">
