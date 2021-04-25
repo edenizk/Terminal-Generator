@@ -37,7 +37,7 @@ const ResultCard = () => {
       }
     });
 
-    tmpSettings['guid'] = uuidv4();
+    tmpSettings['guid'] = `{${uuidv4()}}`;
 
     setSettings(tmpSettings);
   };
