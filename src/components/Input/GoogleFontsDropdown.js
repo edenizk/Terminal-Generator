@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { ChevronDown } from 'react-feather';
+import { ChevronDown, HelpCircle } from 'react-feather';
+
 // TODO: CHANGE THIS TO SEARCH DROP DOWN
 const GoogleFontsDropdown = (props) => {
-  const { title, options, activeOption, event } = props;
+  const { title, link, options, activeOption, event } = props;
   const [optionsActive, setOptionsActive] = useState(false);
   const [limit, setlimit] = useState(20)
   const list = React.createRef();
@@ -20,7 +21,13 @@ const GoogleFontsDropdown = (props) => {
 
   return ( 
     <div className="dropdown">
-      <h3 className="dropdown__title input-title">{title}</h3>
+      <div className="dropdown__titleWrapper">
+        <h3 className="dropdown__title input-title">{title}</h3>
+        {
+          link && link !== '' &&
+            <a className="dropdown__help help-link" href={link} target="_blank" rel="noopener noreferrer"><HelpCircle/></a>
+        }
+      </div>
       <div className="dropdown__label" onClick={() => setOptionsActive(!optionsActive)}>
         <span className="dropdown__selected">{ activeOption }</span>
         <ChevronDown className="dropdown__icon"></ChevronDown>

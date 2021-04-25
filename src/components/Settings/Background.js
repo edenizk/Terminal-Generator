@@ -24,8 +24,18 @@ const Background = () => {
     <div className="general-settings">
       <h2 className="general-settings__title settings-title">Background</h2>
       <div className="general-settings__content content">
-        <SliderInput title="Background Image Opacity" event={setSliderValue} value={backgroundImageOpacity}></SliderInput>
-        <AddImage title="Background Image" event={setBackgroundImageValue} imageSrc={image}/>
+        <SliderInput 
+          title="Image Opacity" 
+          event={setSliderValue} 
+          value={backgroundImageOpacity}
+          link="https://docs.microsoft.com/en-us/windows/terminal/customize-settings/profile-appearance#background-image-opacity"
+        />
+        <AddImage 
+          title="Background Image" 
+          event={setBackgroundImageValue} 
+          imageSrc={image}
+          link="https://docs.microsoft.com/en-us/windows/terminal/customize-settings/profile-appearance#background-image-path"
+        />
       </div>
     </div>
   );

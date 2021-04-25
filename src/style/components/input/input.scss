@@ -4,5 +4,10 @@
         font-size: 24px;    
         padding: 6px 16px 4px;
     }
+
+    &__titleWrapper {
+        display: flex;
+        align-items: center;
+    }
 }
 

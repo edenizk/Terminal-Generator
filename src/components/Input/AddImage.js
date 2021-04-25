@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { FilePlus, Trash2 } from 'react-feather';
+import { FilePlus, Trash2, HelpCircle } from 'react-feather';
 
 const AddImage = (props) => {
-  const { title, event, imageSrc } = props;
+  const { title, link, required, event, imageSrc } = props;
   const [fileName, setFileName] = useState('');
   
   const handleImageChange = (file) => {
@@ -19,7 +19,13 @@ const AddImage = (props) => {
 
   return ( 
     <div className={`addImage${imageSrc !== '' ? ' addImage--imageAdded' : ''}`}>
-      <h3 className="addImage__title input-title">{title}</h3>
+      <div className="addImage__titleWrapper">
+        <h3 className="addImage__title input-title">{title}<span className="input__required">{required && '*'}</span></h3>
+        {
+          link && link !== '' &&
+            <a className="input__help help-link" href={link} target="_blank" rel="noopener noreferrer"><HelpCircle/></a>
+        }      
+      </div>
       <input className="addImage__input" id="file-upload" type="file" onChange={(file) => handleImageChange(file)} multiple accept="image/*"  ></input>
       <label htmlFor="file-upload" className="addImage__label">
           <FilePlus />

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Slider } from 'material-ui-slider';
+import { HelpCircle } from 'react-feather';
 
 const SliderInput = (props) => {
-  const { title, event, value, valueText, max, min } = props;
+  const { title, link, required, event, value, valueText, max, min } = props;
 
   const setSliderValue = (value) => {
     event(value);
@@ -10,7 +11,13 @@ const SliderInput = (props) => {
 
   return ( 
     <div className="slider">
-      <h3 className="slider__title input-title">{title}</h3>
+      <div className="slider__titleWrapper">
+        <h3 className="slider__title input-title">{title}<span className="input__required">{required && '*'}</span></h3>
+        {
+          link && link !== '' &&
+            <a className="input__help help-link" href={link} target="_blank" rel="noopener noreferrer"><HelpCircle/></a>
+        }      
+      </div>
       <Slider className="slider__slider" min={min ? min : 0} max={max ? max : 100} defaultValue={value} onChange={(value) => setSliderValue(value)}></Slider>
       <span className="slider__value">{valueText}</span>
     </div>

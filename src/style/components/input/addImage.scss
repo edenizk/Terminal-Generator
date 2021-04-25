@@ -65,4 +65,9 @@
       opacity: 1;
     }
   }
+
+  &__titleWrapper {
+    display: flex;
+    align-items: center;
+  }
 }

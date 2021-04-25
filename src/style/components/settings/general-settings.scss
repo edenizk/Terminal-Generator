@@ -51,3 +51,14 @@ body {
         text-decoration: none;
     }
 }
+
+.help-link {
+    color: $cDark;
+    cursor: pointer;
+    margin-left: 16px;
+    display: flex;
+
+    &:hover {
+        color: $cOrange;
+    }
+}

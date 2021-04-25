@@ -58,7 +58,12 @@ const GeneralSettings = () => {
     <div className="general-settings">
       <h2 className="general-settings__title settings-title">General Settings</h2>
       <div className="general-settings__content content">
-        <Input title="Tab Title" event={onNameChange} value={terminalReducer.name ?? ''} required></Input>
+        <Input 
+          title="Tab Title" 
+          event={onNameChange} 
+          value={terminalReducer.name ?? ''} required
+          link="https://docs.microsoft.com/en-us/windows/terminal/customize-settings/profile-general#name"
+        />
         <GoogleFontsDropdown 
           title="Font Face" 
           options={
@@ -68,6 +73,7 @@ const GeneralSettings = () => {
           } 
           activeOption={terminalReducer.fontFace === '' ? 'Choose a Font Face' : terminalReducer.fontFace} 
           event={onFontChange}
+          link="https://docs.microsoft.com/en-us/windows/terminal/customize-settings/profile-appearance#font-face"
         />
         <Dropdown 
           title="Font Weight" 
@@ -80,12 +86,14 @@ const GeneralSettings = () => {
             ? 'Choose a Font Weight' 
             : terminalReducer.fontWeight} 
           event={onFontWeightChange}
+          link="https://docs.microsoft.com/en-us/windows/terminal/customize-settings/profile-appearance#font-weight"
         />
         <Dropdown 
           title="Cursor Shape" 
           options={Object.values(cursorShapeOptions)} 
           activeOption={cursorShapeOptions[terminalReducer.cursorShape ?? 'bar']} 
           event={onCursorShapeChange}
+          link="https://docs.microsoft.com/en-us/windows/terminal/customize-settings/profile-appearance#cursor-shape"
         />
         {/* <Dropdown title="Close on Exit" options={['true', 'false']}></Dropdown> */}
         {/* <Checkbox name="Scrollbar visibility" isChecked={terminalReducer.isScrollbarVisible ?? true} event={onScrollbarVisibilityChange}></Checkbox> */}
