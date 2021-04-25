@@ -1,4 +1,6 @@
-This project uses
+# LIVE ON 🔴 https://terminal-generator.netlify.app/ 
+
+## This project uses:
 
 * React
 * Redux
