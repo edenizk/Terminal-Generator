@@ -1,4 +1,4 @@
-# LIVE ON 🔴 https://terminal-generator.netlify.app/ 
+# 🔴 LIVE ON https://terminal-generator.netlify.app/ 
 
 ## This project uses:
 
