@@ -1,7 +1,7 @@
 const INITIAL_STATE = Object.freeze({
-  name: 'test',
+  name: 'Terminal Generator Shell',
   fontFace: '',
-  fontWeight: 'Normal',
+  fontWeight: '',
   cursorShape: 'bar',
   closeOnExit: 'graceful',
   icon: '',
