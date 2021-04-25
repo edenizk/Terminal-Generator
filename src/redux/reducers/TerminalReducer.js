@@ -12,7 +12,7 @@ const INITIAL_STATE = Object.freeze({
   backgroundImageOpacity: 50,
   backgroundImageAlignment: 'Center',
   backgroundImageStretchMode: 'None',
-  backgroundColor: '#472148', // THIS SET AS ONLY BACKGROUND IN SETTINGS.JSON
+  background: '#472148',
   useAcrylic: true,
   acrylicOpacity: 50,
   padding: '8, 8, 8, 8',
