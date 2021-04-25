@@ -10,7 +10,7 @@ const Checkbox = (props) => {
         className="checkbox__button"
         onClick={() => {event(!isChecked);}}>
         <CheckCircle className="checkbox__checkbox"></CheckCircle>
-        <h3 className="checkbox__title input-title">{name}</h3>
+        <h2 className="checkbox__title input-title">{name}</h2>
       </button>
     </div>
   );

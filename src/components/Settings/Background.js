@@ -22,7 +22,7 @@ const Background = () => {
 
   return (
     <div className="general-settings">
-      <h2 className="general-settings__title settings-title">Background</h2>
+      <h1 className="general-settings__title settings-title">Background</h1>
       <div className="general-settings__content content">
         <SliderInput 
           title="Image Opacity" 

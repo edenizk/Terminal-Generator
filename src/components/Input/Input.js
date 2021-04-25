@@ -7,7 +7,7 @@ const Input = (props) => {
   return ( 
     <div className="input">
       <div className="input__titleWrapper">
-        <h3 className="input__title input-title">{title}<span className="input__required">{required && '*'}</span></h3>
+        <h2 className="input__title input-title">{title}<span className="input__required">{required && '*'}</span></h2>
         {
           link && link !== '' &&
             <a className="input__help help-link" href={link} target="_blank" rel="noopener noreferrer"><HelpCircle/></a>

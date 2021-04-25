@@ -22,7 +22,7 @@ const GoogleFontsDropdown = (props) => {
   return ( 
     <div className="dropdown">
       <div className="dropdown__titleWrapper">
-        <h3 className="dropdown__title input-title">{title}</h3>
+        <h2 className="dropdown__title input-title">{title}</h2>
         {
           link && link !== '' &&
             <a className="dropdown__help help-link" href={link} target="_blank" rel="noopener noreferrer"><HelpCircle/></a>

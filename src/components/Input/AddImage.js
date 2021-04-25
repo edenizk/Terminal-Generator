@@ -20,7 +20,7 @@ const AddImage = (props) => {
   return ( 
     <div className={`addImage${imageSrc !== '' ? ' addImage--imageAdded' : ''}`}>
       <div className="addImage__titleWrapper">
-        <h3 className="addImage__title input-title">{title}<span className="input__required">{required && '*'}</span></h3>
+        <h2 className="addImage__title input-title">{title}<span className="input__required">{required && '*'}</span></h2>
         {
           link && link !== '' &&
             <a className="input__help help-link" href={link} target="_blank" rel="noopener noreferrer"><HelpCircle/></a>

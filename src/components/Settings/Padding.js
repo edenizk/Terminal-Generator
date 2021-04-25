@@ -28,7 +28,7 @@ const Padding = () => {
 
   return (
     <div className="general-settings">
-      <h2 className="general-settings__title settings-title">Padding</h2>
+      <h1 className="general-settings__title settings-title">Padding</h1>
       <div className="general-settings__content content">
         <SliderInput title="Top" max={2000} event={setPaddingValueTop} value={paddingsArray[PAD_DIR.top]} valueText={paddingsArray[PAD_DIR.top]}></SliderInput>
         <SliderInput title="Right" max={2000} event={setPaddingValueRight} value={paddingsArray[PAD_DIR.right]}  valueText={paddingsArray[PAD_DIR.right]}></SliderInput>

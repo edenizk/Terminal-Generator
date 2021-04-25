@@ -58,7 +58,7 @@ const GeneralSettings = () => {
 
   return (
     <div className="general-settings">
-      <h2 className="general-settings__title settings-title">General Settings</h2>
+      <h1 className="general-settings__title settings-title">General Settings</h1>
       <div className="general-settings__content content">
         <Input 
           title="Tab Title" 
