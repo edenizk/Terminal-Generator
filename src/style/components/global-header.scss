@@ -2,8 +2,26 @@
   display: flex;
   align-items: center;
   position: absolute;
+  width: 45vw;
+  max-width: 650px;
+  justify-content: space-between;
 
   &__logo {
     margin-right: 20px;
+  }
+
+  &__logoWrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  &__contact {
+    .link {
+      color: $cWhite;
+    }
+  }
+
+  &__me {
+    margin-left: 20px;
   }
 }
