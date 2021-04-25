@@ -3,6 +3,7 @@ import { ChevronsUp } from 'react-feather';
 import { useSelector } from 'react-redux';
 import BasicSettingsTemplate from './BasicSettingsTemplate';
 import AdvanceSettingsTemplate from './AdvanceSettingsTemplate'
+import { v4 as uuidv4 } from 'uuid';
 
 const ResultCard = () => {
   const [isClose, setIsClose] = useState(true);
@@ -16,7 +17,6 @@ const ResultCard = () => {
   const openCard = () => {
     if (!isClose) return;
 
-    // generateColumns();
     removeEmptyValues();
     setIsClose(false);
   };
@@ -37,19 +37,10 @@ const ResultCard = () => {
       }
     });
 
+    tmpSettings['guid'] = uuidv4();
+
     setSettings(tmpSettings);
   };
-
-  // const generateColumns = () => {
-
-  //   console.log('generating');
-  //   console.log(terminalReducer);
-  //   terminalReducer.forEach((column) => {
-  //     let columnName = column.metadata.colName;
-  //     settings[columnName] = column.value;
-  //   });
-
-  // }
 
   return (
     <details 
@@ -96,7 +87,7 @@ const ResultCard = () => {
         <div className="resultCard__description richText">
           <p>Below is how the code should look like in default settings file. You can also copy paste whole thing to your settings.json file</p>
         </div>
-        <AdvanceSettingsTemplate settings={settings} />
+        <AdvanceSettingsTemplate settings={settings}/>
       </div>
     </details>
   );
