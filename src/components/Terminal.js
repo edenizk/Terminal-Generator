@@ -2,6 +2,7 @@ import React from 'react';
 import TerminalHeader from './TerminalHeader';
 import { useSelector } from 'react-redux';
 import PAD_DIR from '../helpers/PaddingDir';
+import FONT_WEIGHT from '../helpers/FontWeight';
 
 function Terminal() {
   const terminalReducer = useSelector(state => state.terminalReducer);
@@ -18,6 +19,9 @@ function Terminal() {
     emptyBox: '▯'
   };
 
+  const getFontWeightByValue = (value) => {
+    return Object.keys(FONT_WEIGHT).find(key => FONT_WEIGHT[key] === value);
+  }
   
   return (
     <div className="terminal">
@@ -28,7 +32,7 @@ function Terminal() {
         paddingBottom: paddingsArray[PAD_DIR.bottom] + 'px',
         paddingLeft: paddingsArray[PAD_DIR.left] + 'px',
         fontFamily: terminalReducer.fontFace,
-        fontWeight: terminalReducer.fontWeight,
+        fontWeight: getFontWeightByValue(terminalReducer.fontWeight),
       }}>
         <div 
           className="terminal__backgroundImage" 

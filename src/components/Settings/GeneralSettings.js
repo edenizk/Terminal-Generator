@@ -2,6 +2,7 @@ import React from 'react';
 import { Input, Dropdown, GoogleFontsDropdown } from '../Input';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTitle, setFontWeight, setCursorShape, setFontObject, setFontFace, setFontWeights } from '../../redux/actions';
+import FONT_WEIGHT from '../../helpers/FontWeight';
 
 const GeneralSettings = () => {
   const dispatch = useDispatch();
@@ -38,7 +39,8 @@ const GeneralSettings = () => {
   }
 
   const onFontWeightChange = (value) => {
-    dispatch(setFontWeight(value));
+    const fontWeight = FONT_WEIGHT[value];
+    dispatch(setFontWeight(fontWeight ?? ''));
   };
 
   const onCursorShapeChange = (value) => {
