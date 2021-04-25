@@ -42,3 +42,12 @@ body {
         background-color: rgba($cBlack, .3);
     }
 }
+
+.link {
+    color: $cOrange;
+    text-decoration: underline;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
