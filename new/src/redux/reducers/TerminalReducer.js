@@ -13,6 +13,11 @@ const INITIAL_STATE = Object.freeze({
   backgroundImageAlignment: 'right',
   backgroundImageStretchMode: 'none',
   background: '#472148',
+  foreground: '',
+  tabColor: '',
+  selectionBackground: '',
+  cursorColor: '',
+  adjustIndistinguishableColors: 'indexed',
   useAcrylic: true,
   acrylicOpacity: 50,
   padding: '8, 8, 8, 8',
@@ -83,8 +88,23 @@ const terminalReducer = (state = INITIAL_STATE, action) => {
   case 'SET_BACKGROUND_COLOR':
     return {
       ...state,
-      backgroundColor: action.payload,
+      background: action.payload,
     };
+  case 'SET_COMMAND_LINE':
+    return {
+      ...state,
+      commandLine: action.payload,
+    };
+  case 'SET_FOREGROUND_COLOR':
+    return { ...state, foreground: action.payload };
+  case 'SET_TAB_COLOR':
+    return { ...state, tabColor: action.payload };
+  case 'SET_SELECTION_BACKGROUND':
+    return { ...state, selectionBackground: action.payload };
+  case 'SET_CURSOR_COLOR':
+    return { ...state, cursorColor: action.payload };
+  case 'SET_ADJUST_INDISTINGUISHABLE_COLORS':
+    return { ...state, adjustIndistinguishableColors: action.payload };
   case 'SET_USE_ACRYLIC':
     return {
       ...state,

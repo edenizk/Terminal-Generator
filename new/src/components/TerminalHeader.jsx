@@ -5,10 +5,11 @@ import { useSelector } from 'react-redux';
 function TerminalHeader() {
   const icon = useSelector(state => state.terminalReducer.icon);
   const title = useSelector(state => state.terminalReducer.name);
+  const tabColor = useSelector(state => state.terminalReducer.tabColor);
 
   return ( 
     <div className="terminal-header">
-      <div className="terminal-header__tab">
+      <div className="terminal-header__tab" style={{ backgroundColor: tabColor || undefined }}>
         {
           icon ? <img className="terminal-header__icon" src={icon} alt="tab icon"></img>  : 
             <Slash className="terminal-header__icon terminal-header__icon--missing"></Slash>

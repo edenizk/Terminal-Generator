@@ -33,16 +33,22 @@ function Terminal() {
         paddingLeft: paddingsArray[PAD_DIR.left] + 'px',
         fontFamily: terminalReducer.fontFace,
         fontWeight: getFontWeightByValue(terminalReducer.fontWeight),
+        backgroundColor: terminalReducer.background || undefined,
+        color: terminalReducer.foreground || undefined,
+        opacity: terminalReducer.useAcrylic ? terminalReducer.acrylicOpacity / 100 : undefined,
       }}>
-        <div 
-          className="terminal__backgroundImage" 
+        <div
+          className="terminal__backgroundImage"
           style={{
             backgroundImage:`url("${image ?? ''}")`,
             opacity:terminalReducer.backgroundImageOpacity / 100,
           }}></div>
         <p className="terminal__paragraph">Your Favorite Shell ❤</p>
-        <p className="terminal__paragraph">C:\Users\me&gt; 
-          <span className="terminal__cursorShape">
+        <p className="terminal__paragraph">C:\Users\me&gt;
+          <span
+            className="terminal__cursorShape"
+            style={{ color: terminalReducer.cursorColor || undefined }}
+          >
             {cursorShape ? cursorShapeOptions[cursorShape] : '|'}
           </span>
         </p>

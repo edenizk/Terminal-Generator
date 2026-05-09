@@ -144,3 +144,33 @@ export const setHistorySize = (value) => {
     payload: value
   };
 };
+
+export const setCommandLine = (value) => ({
+  type: 'SET_COMMAND_LINE',
+  payload: value
+});
+
+export const setForegroundColor = (value) => ({
+  type: 'SET_FOREGROUND_COLOR',
+  payload: value
+});
+
+export const setTabColor = (value) => ({
+  type: 'SET_TAB_COLOR',
+  payload: value
+});
+
+export const setSelectionBackground = (value) => ({
+  type: 'SET_SELECTION_BACKGROUND',
+  payload: value
+});
+
+export const setCursorColor = (value) => ({
+  type: 'SET_CURSOR_COLOR',
+  payload: value
+});
+
+export const setAdjustIndistinguishableColors = (value) => ({
+  type: 'SET_ADJUST_INDISTINGUISHABLE_COLORS',
+  payload: value
+});
