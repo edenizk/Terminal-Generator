@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import { ChevronsUp } from 'react-feather';
 import { useSelector } from 'react-redux';
 import BasicSettingsTemplate from './BasicSettingsTemplate';
@@ -24,22 +24,12 @@ const ResultCard = () => {
   const defaultValueReducer = useSelector(state => state.defaultValueReducer);
   const filterReducer = useSelector(state => state.filterReducer);
   const startupReducer = useSelector(state => state.startupReducer);
-  const fontLink = 
-  filterReducer.fontObject.files && filterReducer.fontObject.files[terminalReducer.fontWeight];
-  const [settings, setSettings] = useState({});
+  const fontLink =
+    filterReducer.fontObject.files && filterReducer.fontObject.files[terminalReducer.fontWeight];
 
-  const openCard = () => {
-    if (!isClose) return;
+  const guidRef = useRef(uuidv4());
 
-    removeEmptyValues();
-    setIsClose(false);
-  };
-
-  const closeCard = () => {
-    setIsClose(true);
-  };
-
-  const removeEmptyValues = () => {
+  const settings = useMemo(() => {
     const tmpSettings = {};
 
     Object.keys(terminalReducer).forEach((prop) => {
@@ -47,11 +37,15 @@ const ResultCard = () => {
         terminalReducer[prop] !== null &&
         JSON.stringify(terminalReducer[prop]) !== JSON.stringify(defaultValueReducer[prop])
       ) {
-        tmpSettings[prop] = terminalReducer[prop];
+        let value = terminalReducer[prop];
+        if (prop === 'backgroundImageOpacity' || prop === 'acrylicOpacity') {
+          value = Math.round(value) / 100;
+        }
+        tmpSettings[prop] = value;
       }
     });
 
-    tmpSettings['guid'] = `{${uuidv4()}}`;
+    tmpSettings['guid'] = `{${guidRef.current}}`;
 
     const startupSettings = {};
     Object.keys(startupReducer).forEach((prop) => {
@@ -61,7 +55,16 @@ const ResultCard = () => {
       }
     });
 
-    setSettings({ ...startupSettings, profiles: { defaults: tmpSettings } });
+    return { ...startupSettings, profiles: { defaults: tmpSettings } };
+  }, [terminalReducer, defaultValueReducer, startupReducer]);
+
+  const openCard = () => {
+    if (!isClose) return;
+    setIsClose(false);
+  };
+
+  const closeCard = () => {
+    setIsClose(true);
   };
 
   return (

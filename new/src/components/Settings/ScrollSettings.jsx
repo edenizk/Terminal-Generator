@@ -5,18 +5,18 @@ import AdvancedCarousel from './AdvancedCarousel';
 
 const ScrollSettings = () => {
   const dispatch = useDispatch();
-  const { scrollbarVisibility, scrollToInput, historySize } = useSelector(state => state.terminalReducer);
+  const { scrollbarState, snapOnInput, historySize } = useSelector(state => state.terminalReducer);
 
   return (
     <AdvancedCarousel title="Scroll Settings">
       <Checkbox
         name="Show Scrollbar"
-        isChecked={scrollbarVisibility}
+        isChecked={scrollbarState}
         event={(value) => dispatch(setScrollbarVisibility(value))}
       />
       <Checkbox
         name="Snap to Input on Type"
-        isChecked={scrollToInput}
+        isChecked={snapOnInput}
         event={(value) => dispatch(setScrollToInput(value))}
       />
       <SliderInput

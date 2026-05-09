@@ -1,28 +1,28 @@
 import PAD_DIR from '../../helpers/PaddingDir'
 
 const INITIAL_STATE = Object.freeze({
-  name: 'Terminal Generator Shell',
+  name: '',
   fontFace: '',
   fontWeight: '',
   cursorShape: 'bar',
   closeOnExit: 'graceful',
-  commandLine: 'cmd.exe',
+  commandLine: '',
   icon: null,
-  backgroundImage: 'kity_space.gif',
+  backgroundImage: '',
   backgroundImageOpacity: 50,
-  backgroundImageAlignment: 'right',
+  backgroundImageAlignment: 'uniformToFill',
   backgroundImageStretchMode: 'none',
-  background: '#472148',
+  background: '',
   foreground: '',
   tabColor: '',
   selectionBackground: '',
   cursorColor: '',
   adjustIndistinguishableColors: 'indexed',
-  useAcrylic: true,
+  useAcrylic: false,
   acrylicOpacity: 50,
   padding: '8, 8, 8, 8',
-  scrollbarVisibility: true, // Property name: scrollbarState
-  scrollToInput: true, // Property name: snapOnInput
+  scrollbarState: true,
+  snapOnInput: true,
   historySize: 9001
 });
 
@@ -139,12 +139,12 @@ const terminalReducer = (state = INITIAL_STATE, action) => {
   case 'SET_SCROLLBAR_VISIBILITY':
     return {
       ...state,
-      scrollbarVisibility: action.payload,
-    }; 
+      scrollbarState: action.payload,
+    };
   case 'SET_SCROLL_TO_INPUT':
     return {
       ...state,
-      scrollToInput: action.payload,
+      snapOnInput: action.payload,
     };
   case 'SET_HISTORY_SIZE':
     return {

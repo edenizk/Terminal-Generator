@@ -7,7 +7,7 @@ const INITIAL_STATE = Object.freeze({
   commandLine: '',
   icon: '',
   backgroundImage: '',
-  backgroundImageOpacity: 50,
+  backgroundImageOpacity: 100,
   backgroundImageAlignment: 'uniformToFill',
   backgroundImageStretchMode: 'none',
   background: '',
@@ -19,8 +19,8 @@ const INITIAL_STATE = Object.freeze({
   useAcrylic: false,
   acrylicOpacity: 50,
   padding: '8, 8, 8, 8',
-  scrollbarVisibility: true, // Property name: scrollbarState
-  scrollToInput: true, // Property name: snapOnInput
+  scrollbarState: true,
+  snapOnInput: true,
   historySize: 9001
 });
 
