@@ -1,9 +1,34 @@
 .dropdown {
-    font-size: 14px;
-    position: relative;
-    cursor: pointer;
     margin-top: 12px;
 
+    &__titleWrapper {
+        display: flex;
+        align-items: center;
+        margin-bottom: 4px;
+    }
+
+    // Native select used by regular Dropdown
+    &__select {
+        width: 100%;
+        font-size: 14px;
+        font-family: inherit;
+        padding: 6px 10px;
+        border: 1px solid rgba($cBlack, 0.3);
+        border-radius: 4px;
+        background: $cWhite;
+        color: $cBlack;
+        box-sizing: border-box;
+        cursor: pointer;
+        appearance: auto;
+
+        &:focus {
+            outline: none;
+            border-color: $cOrange;
+            box-shadow: 0 0 0 2px rgba($cOrange, 0.15);
+        }
+    }
+
+    // Clickable label shown when search is closed (GoogleFontsDropdown)
     &__label {
         width: 100%;
         display: flex;
@@ -16,35 +41,62 @@
         color: $cBlack;
         box-sizing: border-box;
         font-size: 14px;
+        cursor: pointer;
 
         &:hover {
             border-color: rgba($cBlack, 0.5);
         }
     }
 
-    &__options {
-        position: absolute;
+    // Search wrapper (GoogleFontsDropdown open state)
+    &__search-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__search-input {
         width: 100%;
-        background-color: $cWhite;
+        font-size: 14px;
+        font-family: inherit;
+        padding: 6px 10px;
+        border: 1px solid $cOrange;
+        border-radius: 4px 4px 0 0;
+        background: $cWhite;
+        color: $cBlack;
+        box-sizing: border-box;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    // Options list
+    &__options {
+        list-style: none;
+        margin: 0;
         padding: 4px 0;
-        margin-top: 2px;
+        background: $cWhite;
         border: 1px solid rgba($cBlack, 0.2);
-        border-radius: 4px;
-        display: none;
-        z-index: 10;
+        border-top: none;
+        border-radius: 0 0 4px 4px;
         max-height: 200px;
-        overflow: auto;
-        box-shadow: 0 4px 12px rgba($cBlack, 0.12);
+        overflow-y: auto;
+        display: none;
 
         &--active {
             display: block;
         }
+
+        &--inline {
+            position: static;
+            width: 100%;
+        }
     }
 
     &__option {
-        cursor: pointer;
         padding: 6px 10px;
         font-size: 14px;
+        cursor: pointer;
 
         &:hover {
             background: rgba($cBlack, 0.05);
@@ -54,11 +106,16 @@
             color: $cOrange;
             font-weight: 600;
         }
+
+        &--empty {
+            color: rgba($cBlack, 0.4);
+            cursor: default;
+            font-style: italic;
+        }
     }
 
-    &__titleWrapper {
-        display: flex;
-        align-items: center;
-        margin-bottom: 4px;
+    &__highlight {
+        color: $cOrange;
+        font-weight: 700;
     }
 }
