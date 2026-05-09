@@ -174,3 +174,14 @@ export const setAdjustIndistinguishableColors = (value) => ({
   type: 'SET_ADJUST_INDISTINGUISHABLE_COLORS',
   payload: value
 });
+
+export const setStartOnUserLogin = (value) => ({ type: 'SET_START_ON_USER_LOGIN', payload: value });
+export const setFirstWindowPreference = (value) => ({ type: 'SET_FIRST_WINDOW_PREFERENCE', payload: value });
+export const setLaunchMode = (value) => ({ type: 'SET_LAUNCH_MODE', payload: value });
+export const setWindowingBehavior = (value) => ({ type: 'SET_WINDOWING_BEHAVIOR', payload: value });
+export const setInitialCols = (value) => ({ type: 'SET_INITIAL_COLS', payload: value });
+export const setInitialRows = (value) => ({ type: 'SET_INITIAL_ROWS', payload: value });
+export const setInitialPosition = (value) => ({ type: 'SET_INITIAL_POSITION', payload: value });
+export const setCenterOnLaunch = (value) => ({ type: 'SET_CENTER_ON_LAUNCH', payload: value });
+export const setStartupActions = (value) => ({ type: 'SET_STARTUP_ACTIONS', payload: value });
+export const setAllowHeadless = (value) => ({ type: 'SET_ALLOW_HEADLESS', payload: value });

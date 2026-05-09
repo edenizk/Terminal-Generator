@@ -1,8 +1,18 @@
 .input {
     &__inputField {
         width: 100%;
-        font-size: 24px;    
+        font-size: 24px;
         padding: 6px 16px 4px;
+        border: 1px solid rgba($cWhite, 0.35);
+        border-radius: 3px;
+        background: transparent;
+        color: $cWhite;
+        box-sizing: border-box;
+
+        &:focus {
+            outline: none;
+            border-color: $cOrange;
+        }
     }
 
     &__titleWrapper {

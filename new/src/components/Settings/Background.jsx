@@ -1,6 +1,7 @@
 import React from 'react';
 import { SliderInput } from '../Input';
 import { AddImage } from '../Input';
+import AdvancedCarousel from './AdvancedCarousel';
 import { useDispatch, useSelector } from 'react-redux';
 import { setBackgroundImageOpacity, setBackgroundImage } from '../../redux/actions';
 import { setTerminalBackgroundImage } from '../../redux/reducers/SettingsReducer'
@@ -21,23 +22,20 @@ const Background = () => {
   };
 
   return (
-    <div className="general-settings">
-      <h1 className="general-settings__title settings-title">Background</h1>
-      <div className="general-settings__content content">
-        <SliderInput 
-          title="Image Opacity" 
-          event={setSliderValue} 
-          value={backgroundImageOpacity}
-          link="https://docs.microsoft.com/en-us/windows/terminal/customize-settings/profile-appearance#background-image-opacity"
-        />
-        <AddImage 
-          title="Background Image" 
-          event={setBackgroundImageValue} 
-          imageSrc={image}
-          link="https://docs.microsoft.com/en-us/windows/terminal/customize-settings/profile-appearance#background-image-path"
-        />
-      </div>
-    </div>
+    <AdvancedCarousel title="Background">
+      <SliderInput
+        title="Image Opacity"
+        event={setSliderValue}
+        value={backgroundImageOpacity}
+        link="https://docs.microsoft.com/en-us/windows/terminal/customize-settings/profile-appearance#background-image-opacity"
+      />
+      <AddImage
+        title="Background Image"
+        event={setBackgroundImageValue}
+        imageSrc={image}
+        link="https://docs.microsoft.com/en-us/windows/terminal/customize-settings/profile-appearance#background-image-path"
+      />
+    </AdvancedCarousel>
   );
 };
 

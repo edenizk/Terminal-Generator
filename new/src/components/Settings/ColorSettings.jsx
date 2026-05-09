@@ -6,6 +6,7 @@ import {
 } from '../../redux/actions';
 import { Checkbox, SliderInput, Dropdown } from '../Input';
 import ColorWheel from '../Input/ColorWheel';
+import AdvancedCarousel from './AdvancedCarousel';
 
 const adjustOptions = ['always', 'indexed', 'never'];
 
@@ -17,10 +18,8 @@ const ColorSettings = () => {
   } = useSelector(state => state.terminalReducer);
 
   return (
-    <div className="general-settings">
-      <h1 className="general-settings__title settings-title">Color Settings</h1>
-      <div className="general-settings__content content">
-        <ColorWheel
+    <AdvancedCarousel title="Color Settings">
+      <ColorWheel
           title="Background Color"
           value={background}
           event={(value) => dispatch(setBackgroundColor(value))}
@@ -69,8 +68,7 @@ const ColorSettings = () => {
           event={(value) => dispatch(setAcrylicOpacity(value))}
           link="https://learn.microsoft.com/en-us/windows/terminal/customize-settings/profile-appearance#acrylic-opacity"
         />
-      </div>
-    </div>
+    </AdvancedCarousel>
   );
 };
 

@@ -5,11 +5,25 @@ import BasicSettingsTemplate from './BasicSettingsTemplate';
 import AdvanceSettingsTemplate from './AdvanceSettingsTemplate'
 import { v4 as uuidv4 } from 'uuid';
 
+const startupDefaults = {
+  startOnUserLogin: false,
+  firstWindowPreference: 'defaultProfile',
+  launchMode: 'default',
+  windowingBehavior: 'useNew',
+  initialCols: 120,
+  initialRows: 30,
+  initialPosition: ',',
+  centerOnLaunch: false,
+  startupActions: '',
+  allowHeadless: false,
+};
+
 const ResultCard = () => {
   const [isClose, setIsClose] = useState(true);
   const terminalReducer = useSelector(state => state.terminalReducer);
   const defaultValueReducer = useSelector(state => state.defaultValueReducer);
   const filterReducer = useSelector(state => state.filterReducer);
+  const startupReducer = useSelector(state => state.startupReducer);
   const fontLink = 
   filterReducer.fontObject.files && filterReducer.fontObject.files[terminalReducer.fontWeight];
   const [settings, setSettings] = useState({});
@@ -39,7 +53,15 @@ const ResultCard = () => {
 
     tmpSettings['guid'] = `{${uuidv4()}}`;
 
-    setSettings(tmpSettings);
+    const startupSettings = {};
+    Object.keys(startupReducer).forEach((prop) => {
+      if (JSON.stringify(startupReducer[prop]) !== JSON.stringify(startupDefaults[prop])) {
+        const key = prop === 'allowHeadless' ? 'compatibility.allowHeadless' : prop;
+        startupSettings[key] = startupReducer[prop];
+      }
+    });
+
+    setSettings({ ...startupSettings, profiles: { defaults: tmpSettings } });
   };
 
   return (
