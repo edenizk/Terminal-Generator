@@ -1,23 +1,27 @@
 .input {
+    margin-top: 12px;
+
     &__inputField {
         width: 100%;
-        font-size: 24px;
-        padding: 6px 16px 4px;
-        border: 1px solid rgba($cWhite, 0.35);
-        border-radius: 3px;
-        background: transparent;
-        color: $cWhite;
+        font-size: 14px;
+        padding: 6px 10px;
+        border: 1px solid rgba($cBlack, 0.3);
+        border-radius: 4px;
+        background: $cWhite;
+        color: $cBlack;
         box-sizing: border-box;
+        font-family: inherit;
 
         &:focus {
             outline: none;
             border-color: $cOrange;
+            box-shadow: 0 0 0 2px rgba($cOrange, 0.15);
         }
     }
 
     &__titleWrapper {
         display: flex;
         align-items: center;
+        margin-bottom: 4px;
     }
 }
-

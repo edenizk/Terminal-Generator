@@ -1,6 +1,24 @@
 .slider {
-  &__titleWrapper {
-    display: flex;
-    align-items: center;
-  }
+    margin-top: 12px;
+
+    &__titleWrapper {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2px;
+    }
+
+    &__slider {
+        width: calc(100% - 16px) !important;
+        margin: 0 8px;
+        display: block;
+        color: $cOrange !important;
+    }
+
+    &__value {
+        font-size: 12px;
+        color: rgba($cBlack, 0.5);
+        display: block;
+        text-align: right;
+        margin-top: -2px;
+    }
 }

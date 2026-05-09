@@ -7,15 +7,13 @@
     user-select: none;
 
     &:hover {
-      opacity: 0.8;
+      opacity: 0.7;
     }
   }
 
   &__arrow {
-    font-size: 18px;
     transition: transform 0.2s;
-    display: inline-block;
-    transform: rotate(0deg);
+    flex-shrink: 0;
 
     &--open {
       transform: rotate(90deg);

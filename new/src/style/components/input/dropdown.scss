@@ -1,30 +1,40 @@
 .dropdown {
-    font-size: 24px;
+    font-size: 14px;
     position: relative;
     cursor: pointer;
+    margin-top: 12px;
 
     &__label {
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        border: 1px $cBlack solid;
-        padding: 6px 16px 4px;
-        border-radius: 5px;
+        border: 1px solid rgba($cBlack, 0.3);
+        padding: 6px 10px;
+        border-radius: 4px;
+        background: $cWhite;
+        color: $cBlack;
+        box-sizing: border-box;
+        font-size: 14px;
+
+        &:hover {
+            border-color: rgba($cBlack, 0.5);
+        }
     }
 
     &__options {
         position: absolute;
         width: 100%;
         background-color: $cWhite;
-        padding: 6px 16px 4px;
-        margin-top: 0px;
-        border: 1px $cBlack solid;
-        border-radius: 5px;
+        padding: 4px 0;
+        margin-top: 2px;
+        border: 1px solid rgba($cBlack, 0.2);
+        border-radius: 4px;
         display: none;
-        z-index: 1;
+        z-index: 10;
         max-height: 200px;
         overflow: auto;
+        box-shadow: 0 4px 12px rgba($cBlack, 0.12);
 
         &--active {
             display: block;
@@ -33,18 +43,22 @@
 
     &__option {
         cursor: pointer;
+        padding: 6px 10px;
+        font-size: 14px;
+
+        &:hover {
+            background: rgba($cBlack, 0.05);
+        }
 
         &--selected {
             color: $cOrange;
-        }
-
-        & + & {
-            margin-top: 10px;
+            font-weight: 600;
         }
     }
 
     &__titleWrapper {
         display: flex;
         align-items: center;
+        margin-bottom: 4px;
     }
 }

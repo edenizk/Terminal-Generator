@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { ChevronRight } from 'react-feather';
 
 const AdvancedCarousel = ({ children, title, advancedContent }) => {
   const [advancedOpen, setAdvancedOpen] = useState(false);
@@ -15,7 +16,10 @@ const AdvancedCarousel = ({ children, title, advancedContent }) => {
               onClick={() => setAdvancedOpen(prev => !prev)}
             >
               Advanced
-              <span className={`advanced-carousel__arrow${advancedOpen ? ' advanced-carousel__arrow--open' : ''}`}>›</span>
+              <ChevronRight
+                className={`advanced-carousel__arrow${advancedOpen ? ' advanced-carousel__arrow--open' : ''}`}
+                size={16}
+              />
             </h1>
             {advancedOpen && advancedContent}
           </>

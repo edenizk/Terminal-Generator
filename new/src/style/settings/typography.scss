@@ -1,14 +1,18 @@
 .settings-title {
     font-family: "Baloo Da 2";
     font-weight: 600;
-    font-size: 36px;
-    padding: 13px 0 0 6px;
-    border-bottom: 1px solid $cBlack;
-    border-top: 1px solid $cBlack;
-    margin-top: 35px;  
+    font-size: 18px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 8px 0 8px 6px;
+    border-bottom: 1px solid rgba($cBlack, 0.4);
+    border-top: 1px solid rgba($cBlack, 0.4);
+    margin-top: 24px;
 }
 
 .input-title {
     font-weight: 500;
-    font-size: 36px;
+    font-size: 16px;
+    color: rgba($cBlack, 0.75);
+    margin-bottom: 4px;
 }

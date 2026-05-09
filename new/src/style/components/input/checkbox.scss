@@ -1,20 +1,51 @@
-.checkbox { $p: &;
-  margin-top: 15px;
-  
-  &--active {
-      #{$p}__checkbox {
-        color: $cOrange;
-      }
-  }
+.checkbox {
+    margin-top: 12px;
 
-  &__button {
-    display: flex;
-    align-items: center;
+    &__button {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+    }
 
-  }
+    &__track {
+        width: 36px;
+        height: 20px;
+        border-radius: 10px;
+        background: rgba($cBlack, 0.2);
+        position: relative;
+        flex-shrink: 0;
+        transition: background 0.2s;
 
-  &__checkbox {
-    margin-right: 26px;
-    transition: color .3s;
-  }
+        &::after {
+            content: '';
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: $cWhite;
+            top: 3px;
+            left: 3px;
+            transition: transform 0.2s;
+            box-shadow: 0 1px 3px rgba($cBlack, 0.3);
+        }
+    }
+
+    &--active &__track {
+        background: $cOrange;
+
+        &::after {
+            transform: translateX(16px);
+        }
+    }
+
+    &__title {
+        font-size: 13px;
+        font-weight: 500;
+        color: rgba($cBlack, 0.75);
+        margin: 0;
+    }
 }

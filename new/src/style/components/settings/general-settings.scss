@@ -9,9 +9,9 @@
     }
 
     &__content {
-        padding-left: 6px;
-        padding-right: 52px;
-        padding-bottom: 30px;
+        padding: 0 16px 30px 6px;
+        box-sizing: border-box;
+        overflow-x: hidden;
     }
 }
 
@@ -55,7 +55,9 @@ body {
 .help-link {
     color: $cDark;
     cursor: pointer;
-    margin-left: 16px;
+    height: 16px;
+    margin-bottom: 6px;
+    margin-left: 3px;
     display: flex;
 
     &:hover {
