@@ -1,0 +1,86 @@
+.resultCard {
+  $p: &;
+  position: absolute;
+  max-width: 1440px;
+  width: 100%;
+  padding: 20px 0;
+  background-color: white;
+  box-shadow: 5px -5px 20px rgba(0, 0, 0, 0.2);
+  max-height: 31.25vw;
+  height: 31.25vw;
+  top: calc(100% - 31.25vw);
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 30px 30px 0 0;
+  transition: top .3s;
+  overflow: auto;
+
+  &--closed {
+    top: calc(100% - 60px);
+    cursor: pointer;
+    overflow: hidden;
+
+    &:hover {
+      top: calc(100% - 130px);
+
+      #{$p}__toggleText {
+        color: green;
+      }
+    }
+
+    #{$p}__toggleIcon {
+      opacity: 0;
+    }
+  }
+
+  &__toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+
+  &__toggleText {
+    margin: 0 20px;
+    transition: color .3s;
+  }
+
+  &__toggleIcon {
+    transition: opacity .3s;
+    transform: rotate(180deg);
+  }
+
+  &__content {
+    overflow: auto;
+    height: inherit;
+    padding: 2.73vw 5.47vw 8.21vw;
+  }
+
+  .AdvanceSettingsTemplate {
+    // overflow: auto;
+    max-height: 450px;
+  }
+
+  &__googleFontLink {
+    color: $cOrange;
+  }
+
+  &__googleFontInfo {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity .3s, transform .3s;
+    display: inline-block;
+    pointer-events: none;
+    z-index: -1;
+
+    #{$p}__googleFontLink:hover + & {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  &__description {
+    margin-bottom: 20px;
+  }
+}

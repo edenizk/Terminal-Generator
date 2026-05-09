@@ -1,0 +1,64 @@
+.general-settings {
+    display: contents;
+
+    &__title {
+        padding: 13px 0 10px 6px;
+        border-bottom: 1px solid $cBlack;
+        border-top: 1px solid $cBlack;
+        margin-top: 35px;
+    }
+
+    &__content {
+        padding-left: 6px;
+        padding-right: 52px;
+        padding-bottom: 30px;
+    }
+}
+
+body {
+    overflow: hidden;
+}
+
+.multiline {
+    white-space: pre-wrap;
+}
+
+.code {
+    background-color: $cDark;
+    color: $cLightOrange;
+    padding: 2.18vw 1.09vw;
+}
+
+.highlight {
+    color: $cOrange;
+}
+
+.btn-primary {
+    border: 1px solid rgba($cBlack, .3);
+    border-radius: 0.2rem;
+    padding: 0.5rem;
+
+    &:active {
+        background-color: rgba($cBlack, .3);
+    }
+}
+
+.link {
+    color: $cOrange;
+    text-decoration: underline;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.help-link {
+    color: $cDark;
+    cursor: pointer;
+    margin-left: 16px;
+    display: flex;
+
+    &:hover {
+        color: $cOrange;
+    }
+}

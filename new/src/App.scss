@@ -1,0 +1,32 @@
+// Modules
+@import '../node_modules/scss-reset/src/scss/_reset';
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700;800&display=swap');
+
+// Settings
+@import './style/settings/fonts';
+@import './style/settings/variables';
+@import './style/settings/layout';
+@import './style/settings/animations';
+@import './style/settings/typography';
+@import './style/settings/rich-text';
+
+// Components
+@import './style/components/global-header';
+@import './style/components/terminal-header';
+@import './style/components/terminal';
+@import './style/components/resultCard';
+@import './style/components/basic-settings-template';
+
+// Components/Settings
+@import './style/components/settings/settings-wrapper';
+@import './style/components/settings/general-settings';
+@import './style/components/settings/filter';
+
+// Components/Input
+@import './style/components/input/dropdown';
+@import './style/components/input/input';
+@import './style/components/input/checkbox';
+@import './style/components/input/addImage';
+@import './style/components/input/slider';
+
+
